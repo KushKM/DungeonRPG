@@ -8,15 +8,15 @@
  \<[Daniel](https://github.com/drodr211)\>
  
 ## Project Description
- > * There are a lot of video games on the market today, and with so little time to play, you don't want to spend half the time looking for what to play. This project will recommend video games based on what you already like.
- > * We will be using C++ and maybe the Steam api to scrape game names, genres, and developers.
- > * The inputs will asked for through the command line interface (names, option numbers, etc.) and the outputs will be printed to the terminal using cout.
- > * Features
- > > * Games will be recommended based on user input.
- > > * Games can be filtered by genre, developer, year, type, and/or solo/coop.
- > > * Games can also be filtered by more than one criteria.
- > > * Games results can be sorted by rating to get the most popular results first.
- > > * Search feature to see more game information.
+* There are a lot of video games on the market today, and with so little time to play, you don't want to spend half the time looking for what to play. This project will recommend video games based on what you already like.
+* We will be using C++ and maybe the Steam api to scrape game names, genres, and developers.
+* The inputs will asked for through the command line interface (names, option numbers, etc.) and the outputs will be printed to the terminal using cout.
+* Features:
+  * Games will be recommended based on user input.
+  * Games can be filtered by genre, developer, year, type, and/or solo/coop.
+  * Games can also be filtered by more than one criteria.
+  * Games results can be sorted by rating to get the most popular results first.
+  * Search feature to see more game information.
 
  
  > ## Phase II
