@@ -13,7 +13,7 @@
 * The inputs will asked for through the command line interface (names, option numbers, etc.) and the outputs will be printed to the terminal using cout.
 * Features:
   * Games will be recommended based on user input.
-  * Games can be filtered by genre, developer, year, type, and/or solo/coop.
+  * Games can be filtered by genre, developer, year, type, solo/coop, and/or price. 
   * Games can also be filtered by more than one criteria.
   * Games results can be sorted by rating to get the most popular results first.
   * Search feature to see more game information.
