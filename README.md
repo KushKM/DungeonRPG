@@ -2,10 +2,10 @@
 # Video Game Recommender
  
  Authors: 
- \<[Jackson](https://github.com/JMarolt)\>
- \<[Kush](https://github.com/KushKM)\>
- \<[Julian](https://github.com/jgonz671)\>
- \<[Daniel](https://github.com/drodr211)\>
+ [Jackson](https://github.com/JMarolt), 
+ [Kush](https://github.com/KushKM), 
+ [Julian](https://github.com/jgonz671), 
+ [Daniel](https://github.com/drodr211)
  
 ## Project Description
 * There are a lot of video games on the market today, and with so little time to play, you don't want to spend half the time looking for what to play. This project will recommend video games based on what you already like.
