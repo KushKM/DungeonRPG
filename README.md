@@ -1,5 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10950862&assignment_repo_type=AssignmentRepo)
-# Video Game Recommender
+# {TITLE HERE}
  
  Authors: 
  [Jackson](https://github.com/JMarolt), 
@@ -8,16 +8,16 @@
  [Daniel](https://github.com/drodr211)
  
 ## Project Description
-* There are a lot of video games on the market today, and with so little time to play, you don't want to spend half the time looking for what to play. This project will recommend video games based on what you already like.
-* We will be using C++ and maybe the Steam api to scrape game names, genres, and developers.
+* Text-based RPG game with rougelite elements, where you fight through rooms to defeat monsters and earn currency to permanently upgrade your character.
+* We will be using C++
 * The inputs will asked for through the command line interface (names, option numbers, etc.) and the outputs will be printed to the terminal using cout.
 * Features:
-  * Games will be recommended based on user input.
-  * Games can be filtered by genre, developer, year, type, solo/coop, and/or price. 
-  * Games can also be filtered by more than one criteria.
-  * Games results can be sorted by rating to get the most popular results first.
-  * Search feature to see more game information.
-
+  * Turn-based gameplay.
+  * Fight through rooms and monsters.
+  * Increasingly difficult rooms and better rewards.
+  * Periodic boss battles.
+  * Pick a class that suits your fighting style
+  * Permanent character upgrades between runs.
  
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
