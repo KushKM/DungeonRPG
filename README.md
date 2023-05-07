@@ -1,5 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10950862&assignment_repo_type=AssignmentRepo)
-# {TITLE HERE}
+# {Labyrinth Looter}
  
  Authors: 
  [Jackson](https://github.com/JMarolt), 
@@ -24,6 +24,10 @@ https://docs.google.com/document/d/1ycGBIsks2ziMhPCVEsG74GltEmhe5tnghvWlB2OEPqw/
 
 ## Class Diagram
 ![Class Diagram](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/rpg_class_diagram.png)
+
+Above is the Class Diagram for our game: Labyrinth Looter. The program starts in Game class where the user will select a character in a function called createCharacter() where inside it creates a chracter of the type the user wants. Character is an abstract class and only provides universal functions for the classes that extend it(Cleric, Wizard, Brute, Rogue). At the end of the function, we call the createDungeon() where we create a doubly linked list of room objects which will hold pointers to the next and previous rooms as well as the monster(if it has one). This will be random(about 5-10 rooms) and based on how many rooms the user has gone through, the monsters will be stronger and the possible loot will be better. Since the player has no money, we can call startRun() and enter the first room in the list. Here we set the currRoom to be the room we are in. After entering a room, we output the options a player has with outputPlayerMenu() where we will also take in an input on what the user wants to do which includes attacking, running, or viewing inventory. If the player enters a boss room(The boss class extends the monster class. It will inherit all of the methods and variables that monster has but will have extra parts of it), they will not be allowed to leave as the boss will not let them leave until they have defeated it or have died. Once the player has reached the final room(indicated by the next pointer pointing to the first room or a dummy node), they will face the last boss. If they successfully defeat the boss without dying, they receive a large reward and are kicked back to the main menu where they can shop for items/stat boosts or go into the next level.
+
+Game mechanics: When the player chooses to attack, they will call the attack() function within character. This will attempt to attack the monster within the currRoom. Either the user or monster(whichever has a higher speed stat) will attack first and inflict a certain amount of damage to the other entity. If that entity then dies, the other attack does not happen.
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
