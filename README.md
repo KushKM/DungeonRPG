@@ -20,7 +20,7 @@
  
 
 ## User Interface Specification
-https://docs.google.com/document/d/1ycGBIsks2ziMhPCVEsG74GltEmhe5tnghvWlB2OEPqw/edit?usp=sharing
+![User Interface Specification](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/RPG%20Nav_Screen%20Layout.pdf)
 
 ## Class Diagram
 ![Class Diagram](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/rpg_class_diagram_updated.png.png)
