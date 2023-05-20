@@ -17,3 +17,6 @@ void Monster::attackEnemy(Entity* e) {
     
 }
 
+void Monster::printMonsterDescription(){
+
+}

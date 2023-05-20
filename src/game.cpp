@@ -42,6 +42,7 @@ void Game::createCharacter() {
 //Function that starts a run by "traveling to dungeon..."
 void Game::StartRun() {
     cout << "Traveling to dungeon..." << endl;
+    roomNumber++;
 }
 
 void Game::onDeath() {
@@ -59,3 +60,6 @@ void printClassesIntro() {
     if(file.is_open()) cout << file.rdbuf();
 }
 
+void Game::encounterMonster(){
+
+}
