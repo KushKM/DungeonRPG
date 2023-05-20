@@ -1,18 +1,18 @@
 [BACKSTORY HERE]
 
 Choose your class:
-   1. Wizard
+   a. Wizard
         - low health
         - high damage
         - chance to inflict more damage
-   2. Rogue
+   b. Rogue
         - medium health and damage
         - small chance to dodge attacks
-   3. Brute
+   c. Brute
         - high health
         - low damage
         - does higher damage as his health drops
-   4. Cleric
+   d. Cleric
         - medium health and damage
         - small chance to heal a portion of his health
 

@@ -9,5 +9,7 @@ ADD_EXECUTABLE(main
     src/entity.cpp
     src/character.cpp
     src/monster.cpp
+    src/game.cpp
+    src/room.cpp
 )
 

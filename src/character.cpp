@@ -2,6 +2,10 @@
 #include "character.h"
 using namespace std;
 
+Character::Character() {
+    
+}
+
 Character::Character(double h, double d, int c, int s) {
     health = h;
     damage = d;
