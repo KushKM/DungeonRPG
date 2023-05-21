@@ -14,5 +14,6 @@ class Monster : public Entity {
         Monster();
         Monster(double h, double d, Item i);
         void attackEnemy(Entity* e);
+        void printMonsterDescription();
 };
 #endif

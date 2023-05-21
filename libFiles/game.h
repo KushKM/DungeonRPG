@@ -9,6 +9,7 @@ class Game {
     private:
         Character* player;
         Room* currRoom;
+        int roomNumber;
     public: 
         Game();
         void StartRun();
@@ -16,6 +17,8 @@ class Game {
         void endRun();
         void displayShop();
         void createCharacter();
+        void getRoomNumber();
+        void encounterMonster();
 };
 
 #endif
