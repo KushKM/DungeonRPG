@@ -3,7 +3,7 @@
 #include <fstream>
 using namespace std;
 
-void printClasses();
+void printClassesIntro();
 
 Game::Game() {
 }
