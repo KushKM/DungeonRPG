@@ -4,7 +4,8 @@
 
 using namespace std;
 
-Room::Room(int roomNumber){
+Room::Room(int roomNum){
+    roomNumber = roomNum;
     //For boss rooms multiply monster stats or something
     if(roomNumber % 5 == 0){
     } 
@@ -12,9 +13,11 @@ Room::Room(int roomNumber){
     }
 }
 
-void Room::outputRoomDescription() {
-    int roomChoice = rand() % 4 + 1;
 
+void Room::outputRoomDescription() {
+    cout << "=========\n Room " << roomNumber << "\n=========" << endl;
+
+    int roomChoice = rand() % 4 + 1;
     switch(roomChoice) {
         case 1 :
             cout << "You have entered a dimly lit room. There seems to be scratches littered across the wall, each as big as you are. The bones of a"
@@ -34,5 +37,5 @@ void Room::outputRoomDescription() {
     }
 
     cin.ignore();
-    cout << "Room " << roomChoice << endl;
+    
 }

@@ -10,8 +10,9 @@ class Room {
     private:
         Monster* monster;
         Item item;
+        int roomNumber;
     public:
-        Room(int roomNumber);
+        Room(int roomNum);
         void outputRoomDescription(); 
 };
 

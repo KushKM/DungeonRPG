@@ -12,19 +12,24 @@ void Game::mainMenuOptions() {
     cout << "Choose an option: " << endl;
     cout << "   1. Enter the dungeon" << endl;
     cout << "   2. Visit Shop." << endl;
+    cout << "   0. Quit game." << endl;
+
     
-    int choice = 0;
+    int choice = -1;
     cin >> choice;
-    while(!(choice == 1 || choice == 2)) {
+    while(!(choice == 1 || choice == 2 || choice == 0)) {
         cout << "Invalid Choice" << endl;
         cin >> choice;
     }
 
+    cout << endl;
     switch(choice) {
         case 1:
             startDungeonRun();
         case 2:
             displayShop();
+        case 0:
+            return; //quit game, used number 0 so it doesnst get pressed by accident
     }
 }
 
@@ -68,6 +73,7 @@ void Game::startDungeonRun() {
     roomNumber = 1;
     currRoom = new Room(roomNumber);
     currRoom->outputRoomDescription();
+    onVictory(); //testting
 }
 
 //ends the run if player dies (SEMI-DONE, needs better description)
@@ -88,6 +94,9 @@ void Game::onVictory() {
 }
 
 void Game::displayShop() {
+    cout << "hello this is the shop" << endl;
+    cin.ignore(); cin.ignore();
+    mainMenuOptions();
 }
 
 //Helper function to print out the class infos (DONE)
