@@ -11,15 +11,14 @@ class Game {
         Room* currRoom;
         int roomNumber = 0;
     public: 
-        Game();
+        Game() {}
         void mainMenuOptions();
         void createCharacter();
         void startDungeonRun();
         void onVictory();
         void onDeath();
         void displayShop();
-        void getRoomNumber();
-        void encounterMonster();
+        void newRoom();
 };
 
 #endif
