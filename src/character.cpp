@@ -19,3 +19,5 @@ void Character::attackEnemy(Entity* e) {
 void Character::attemptRun() {
     cout << "Escape failed" << endl; //stub
 }
+
+int Character::getCurrency() {return currency;}

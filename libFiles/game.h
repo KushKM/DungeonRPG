@@ -9,14 +9,15 @@ class Game {
     private:
         Character* player;
         Room* currRoom;
-        int roomNumber;
+        int roomNumber = 0;
     public: 
         Game();
-        void StartRun();
-        void onDeath();
-        void endRun();
-        void displayShop();
+        void mainMenuOptions();
         void createCharacter();
+        void startDungeonRun();
+        void onVictory();
+        void onDeath();
+        void displayShop();
         void getRoomNumber();
         void encounterMonster();
 };

@@ -7,13 +7,12 @@ using namespace std;
 Room::Room(int roomNumber){
     //For boss rooms multiply monster stats or something
     if(roomNumber % 5 == 0){
-
-    } else {
-
+    } 
+    else {
     }
 }
 
-void Room::outputRoomDescription(){
+void Room::outputRoomDescription() {
     int roomChoice = rand() % 4 + 1;
 
     switch(roomChoice) {
@@ -33,4 +32,7 @@ void Room::outputRoomDescription(){
             cout << "There is a monster lying dead ahead. It has not spotted you yet so you have time to make a decision. But you must hurry, you do not know what this beast is capable of.";
             break;
     }
+
+    cin.ignore();
+    cout << "Room " << roomChoice << endl;
 }

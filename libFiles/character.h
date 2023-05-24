@@ -15,6 +15,7 @@ class Character : public Entity {
         Character(double h, double d, int c, int s);
         void attackEnemy(Entity* e);
         void attemptRun();
+        int getCurrency();
 };
 
 #endif
