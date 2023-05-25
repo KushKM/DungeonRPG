@@ -1,5 +1,6 @@
 [Import from gameSetting.txt]
 
+
 Choose your class:
    1. Wizard
         - low health
