@@ -6,3 +6,7 @@ using namespace std;
 void Entity::takeDamage(int dmg) {
     this->health = this->health - dmg;
 }
+
+double Entity::getHealth() {
+    return health;
+}

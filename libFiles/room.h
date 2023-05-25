@@ -8,12 +8,14 @@
 
 class Room {
     private:
-        Monster* monster;
         Item item;
-    
+        int roomNumber;
+        int statsMultiplier;
     public:
-        Room(int roomNumber);
+        Monster* roomMonster;
+        Room(int roomNum);
         void outputRoomDescription(); 
+        void fightScreen();
 };
 
 #endif
