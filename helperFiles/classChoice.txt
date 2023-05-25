@@ -1,6 +1,5 @@
-As you tredge towards the abandoned castle in the distance, you prepare youself for the challenges you must face inside. Once a mercenary, you were caught and tried by the local government. 
-To buy your freedom you have been tasked with clearing out an abandoned castle. The townspeople have sent you on this mission believing it to be impossible, as the castle was overrun 14 years ago by a horde of monsters, killing anyone in the castle. 
-You must prove them wrong if you are to earn your freedom.
+[Import from gameSetting.txt]
+
 
 Choose your class:
    1. Wizard
