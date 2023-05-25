@@ -11,6 +11,7 @@ Monster::Monster(double h, double d, Item i) {
     health = h;
     damage = d;
     item = i;
+    currency = rand() % 10 + 1;
 }
 
 void Monster::attackEnemy(Entity* e) {

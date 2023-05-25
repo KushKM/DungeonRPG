@@ -10,6 +10,7 @@ class Monster : public Entity {
         double health;
         double damage;
         Item item;
+        int currency;
     public:
         Monster();
         Monster(double h, double d, Item i);
