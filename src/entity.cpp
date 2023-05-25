@@ -7,6 +7,10 @@ void Entity::takeDamage(int dmg) {
     this->health = this->health - dmg;
 }
 
-double Entity::getHealth() {
-    return health;
+int Entity::getCurrency(){
+    return this->currency;
+}
+
+double Entity::getHealth(){
+    return this->health;
 }

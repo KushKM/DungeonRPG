@@ -14,10 +14,14 @@ Character::Character(double h, double d, int c, int s) {
 }
 
 void Character::attackEnemy(Entity* e) {
-    
+    if(e->getHealth() == 0){
+        currency += e->getCurrency();
+    }
 }
 void Character::attemptRun() {
     cout << "Escape failed" << endl; //stub
 }
+
+
 
 int Character::getCurrency() {return currency;}
