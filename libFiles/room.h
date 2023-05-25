@@ -1,20 +1,21 @@
 #ifndef ROOM
 #define ROOM
 
-#include "libFiles/entity.h"
-#include "libFiles/character.h"
-#include "libFiles/monster.h"
-#include "libFiles/item.h"
+#include "entity.h"
+#include "character.h"
+#include "monster.h"
+#include "item.h"
 
 class Room {
     private:
-     Monster* monster;
-     Item item;
-    
+        Item item;
+        int roomNumber;
+        int statsMultiplier;
     public:
-     Room(int roomNumber);
-     void outputRoomDescription();
-     
+        Monster* roomMonster;
+        Room(int roomNum);
+        void outputRoomDescription(); 
+        void fightScreen();
 };
 
 #endif

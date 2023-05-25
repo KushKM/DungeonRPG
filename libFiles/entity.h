@@ -8,5 +8,6 @@ class Entity {
     public:
         void attackEnemy(Entity*);
         void takeDamage(int);
+        double getHealth();
 };
 #endif

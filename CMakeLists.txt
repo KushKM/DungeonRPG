@@ -11,5 +11,6 @@ ADD_EXECUTABLE(main
     src/monster.cpp
     src/game.cpp
     src/room.cpp
+    src/item.cpp
 )
 
