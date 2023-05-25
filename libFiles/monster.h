@@ -9,11 +9,10 @@ class Monster : public Entity {
     private:
         double health;
         double damage;
-        Item item;
-        int currency;
+        Item* item;
     public:
         Monster();
-        Monster(double h, double d, Item i);
+        Monster(double h, double d, Item* i);
         void attackEnemy(Entity* e);
         void printMonsterDescription();
 };

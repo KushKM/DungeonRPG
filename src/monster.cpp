@@ -7,11 +7,10 @@ Monster::Monster() {
     
 }
 
-Monster::Monster(double h, double d, Item i) {
+Monster::Monster(double h, double d, Item* i) {
     health = h;
     damage = d;
     item = i;
-    currency = rand() % 10 + 1;
 }
 
 void Monster::attackEnemy(Entity* e) {
@@ -19,5 +18,5 @@ void Monster::attackEnemy(Entity* e) {
 }
 
 void Monster::printMonsterDescription(){
-
+    cout << "MONSTER_INFO_HERE" <<endl;
 }

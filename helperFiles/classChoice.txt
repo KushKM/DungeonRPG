@@ -1,18 +1,18 @@
 [Import from gameSetting.txt]
 
 Choose your class:
-   a. Wizard
+   1. Wizard
         - low health
         - high damage
         - chance to inflict more damage
-   b. Rogue
+   2. Rogue
         - medium health and damage
         - small chance to dodge attacks
-   c. Brute
+   3. Brute
         - high health
         - low damage
         - does higher damage as his health drops
-   d. Cleric
+   4. Cleric
         - medium health and damage
         - small chance to heal a portion of his health
 

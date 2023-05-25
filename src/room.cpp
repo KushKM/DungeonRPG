@@ -1,21 +1,24 @@
 #include "room.h"
 #include <iostream>
 #include <string>
-
+#include <stdlib.h>
 using namespace std;
 
-Room::Room(int roomNumber){
+
+Room::Room(int roomNum){
+    roomNumber = roomNum;
+    roomMonster = new Monster(10, 5, NULL);
     //For boss rooms multiply monster stats or something
-    if(roomNumber % 5 == 0){
-
-    } else {
-
-    }
+    if(roomNumber % 5 == 0) {
+        statsMultiplier = 3;
+    } 
 }
 
-void Room::outputRoomDescription(){
+void Room::outputRoomDescription() {
+    cout << "=========\n Room " << roomNumber << "\n=========" << endl;
+    
+    srand(roomNumber*7); //seed the rand with the roomNumber*7 because it easier
     int roomChoice = rand() % 4 + 1;
-
     switch(roomChoice) {
         case 1 :
             cout << "You have entered a dimly lit room. There seems to be scratches littered across the wall, each as big as you are. The bones of a creature are scattered throughout the room. Judging by the size of the bones, the now dead creature was probably twice your size. You are in danger." << endl;
@@ -33,4 +36,11 @@ void Room::outputRoomDescription(){
             cout << "You have entered what seems to be an old bedroom. The skeleton of the previous occupant is lying on the bed, missing a few bones. There are teeth marks on the arms, and they seem to be recent. Whatever killed them is still here." << endl;
             break;
     }
+    cin.ignore();   
+    cout << endl;
+}
+
+void Room::fightScreen() {
+    // roomMonster->printMonsterDescription();
+    // cin.ignore();
 }
