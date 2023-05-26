@@ -13,7 +13,6 @@ class Monster : public Entity {
     public:
         Monster();
         Monster(double h, double d, Item* i);
-        void attackEnemy(Entity* e);
         void printMonsterDescription();
 };
 #endif
