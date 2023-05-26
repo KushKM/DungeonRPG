@@ -59,18 +59,44 @@ void Game::createCharacter() {
 //Function that starts a run by "traveling to dungeon..."
 void Game::startDungeonRun() {
     cout << endl << "Traveling to dungeon..." << endl;
-    cin.ignore(); cin.ignore();
+    cin.ignore(); 
     
     roomNumber = 1;
     currRoom = new Room(roomNumber);
     currRoom->outputRoomDescription();
-    // while(!(player->getHealth() == 0 || currRoom->roomMonster->getHealth() == 0)) {
-    //     currRoom->fightScreen();
-    // }
-    // if(player->getHealth == 0) {onDeath();}
-    // if(currRoom->roomMonster->getHealth() == 0) {newRoom()}
-    
-    
+
+    bool isInDungeon = true;
+    string input;
+    Monster* monster = currRoom->roomMonster;
+    while(isInDungeon) {
+        currRoom->fightScreen();
+        cout << "Player health: " << player->getHealth() << endl;
+        cout << "What would you like to do?(run/fight)\n";
+        cin >> input;
+        if(input == "quit"){
+            break;
+        }
+        if(input == "run"){
+            player->attemptRun();
+        }
+        if(input == "fight"){
+            if(monster != nullptr){
+                player->attackEnemy(monster);
+                if(monster->getHealth() <= 0){
+                    //do something(for now i just call break :)
+                    break;
+                }else{
+                    monster->attackEnemy(player);
+                    if(player->getHealth() <= 0){
+                        onDeath();
+                        break;
+                    }
+                }
+            }else{
+                cout << "Doesn't exist\n";
+            }
+        }
+    }
 }
 
 //ends the run if player dies (SEMI-DONE, needs better description)

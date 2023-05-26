@@ -7,18 +7,19 @@ using namespace std;
 
 Room::Room(int roomNum){
     roomNumber = roomNum;
-    roomMonster = new Monster(10, 5, NULL);
+    roomMonster = new Monster(200, 5, NULL);
     //For boss rooms multiply monster stats or something
     if(roomNumber % 5 == 0) {
         statsMultiplier = 3;
     } 
+    srand(roomNumber*7); //seed the rand with the roomNumber*7 because it easier
 }
 
 void Room::outputRoomDescription() {
     cout << "=========\n Room " << roomNumber << "\n=========" << endl;
     
-    srand(roomNumber*7); //seed the rand with the roomNumber*7 because it easier
     int roomChoice = rand() % 5 + 1;
+
     switch(roomChoice) {
         case 1 :
             cout << "You have entered a dimly lit room. There seems to be scratches littered across the wall, each as big as you are. The bones of a creature are scattered throughout the room. Judging by the size of the bones, the now dead creature was probably twice your size. You are in danger.";
@@ -41,6 +42,6 @@ void Room::outputRoomDescription() {
 }
 
 void Room::fightScreen() {
-    // roomMonster->printMonsterDescription();
+    roomMonster->printMonsterDescription();
     // cin.ignore();
 }
