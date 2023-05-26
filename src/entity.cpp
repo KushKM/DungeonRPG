@@ -22,3 +22,11 @@ double Entity::getHealth() {
 double Entity::getDamage(){
     return this->damage;
 }
+
+int Entity::getCurrency(){
+    return this->currency;
+}
+
+double Entity::getHealth(){
+    return this->health;
+}
