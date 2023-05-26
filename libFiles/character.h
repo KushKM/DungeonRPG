@@ -2,7 +2,10 @@
 #define CHARACTER
 
 #include "entity.h"
-#include "monster.h"
+#include "item.h"
+#include <vector>
+
+
 
 class Character : public Entity {
     private:
@@ -10,11 +13,14 @@ class Character : public Entity {
         double damage;
         int currency;
         int speed;
+        vector<Item*> inventory; 
     public:
         Character();
         Character(double h, double d, int c, int s);
         void attemptRun();
         int getCurrency();
+        void addCurrency(int amount); 
+        void addItemToInventory(Item*); 
 };
 
 #endif

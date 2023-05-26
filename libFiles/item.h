@@ -1,6 +1,7 @@
 #ifndef ITEM
 #define ITEM 
 #include <string>
+
 using namespace std; 
 
 class Item {
@@ -11,11 +12,31 @@ class Item {
     public: 
         Item();
         Item(string itemName, int healthAmount, int currencyAmount);
-        string getName();
+        string getName(); 
         int getHealthPack();
         int getCurrency(); 
-        void useHealthPack(); 
-        void useCurrency();  
+        virtual void use();  
+
+};
+
+class healthPack : public Item {
+    private: 
+    int healthAmount; 
+
+    public:
+        healthPack() : Item() {}
+        healthPack(string itemName, int healthAmount) : Item(itemName, healthAmount, 0) {}
+        void use() override; 
+};
+
+class currencyPack : public Item {
+    private: 
+    int currencyAmount; 
+
+    public:
+        currencyPack() : Item() {}
+        currencyPack(string itemName, int currencyAmount) : Item(itemName, 0, currencyAmount) {}
+        void use() override; 
 };
 
 #endif

@@ -2,8 +2,9 @@
 #define MONSTER 
 
 #include "entity.h"
-#include "character.h"
 #include "item.h"
+
+class Character; 
 
 class Monster : public Entity {
     private:
@@ -14,5 +15,7 @@ class Monster : public Entity {
         Monster();
         Monster(double h, double d, Item* i);
         void printMonsterDescription();
+        void monsterItemDrop(Character* ); 
 };
+
 #endif
