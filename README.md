@@ -32,26 +32,7 @@ Above is the Class Diagram for our game: Labyrinth Looter. The program starts in
 
 Game mechanics: When the player chooses to attack, they will call the attack() function within character. This will attempt to attack the monster within the currRoom. Either the user or monster(whichever has a higher speed stat) will attack first and inflict a certain amount of damage to the other entity. If that entity then dies, the other attack does not happen. As for item mechanics, there can be two types. The first type is usable which means it is a one-time use to give temporary buffs such as higher damage or health regeneration. There are also permanent items the user can hold and these effects will last the entire time but have much less effect than the useable items. When the user is done, they have the option to save where they are, save their inventories, and save their stats. This will be done in a text file just holding basic information about the player and can be reloaded when the player launches the game at a different time.
  
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
-
+# SOLID
 We included some new SOLID design principles within our code since phase II. We firstly applied the S, Single Responsibility, by moving all methods that output information outside of the game class and into their own class. This is because game is supposed to have the one responsibility of running our game. Now, instead of running our game and worrying about menu printing, we have a separate class that can print out everything for the game class now. We plan on using this more for different classes such as the room class, monster class, and character class. Next, we used the L, Liskov Substitution, by allowing the ability to pass any type of sub class into a method and not have it break. We can see this when passing in an entity type object into attackEnemy function and it works. It makes the code much simpler than making multiple methods to do basically the same thing. We implemented D, dependency inversion principle, by creating multiple interfaces to allow for multiple classes to use the same code instead of just relying entirely on classes . We did this by using two abstract classes, Entity and Item which can be used by its subclasses. 
 
  
