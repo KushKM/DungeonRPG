@@ -20,11 +20,12 @@ int dropChance = rand() % 100 + 1;
     if(dropChance <= 50) {  
         item = new healthPack("Health Pack", 20);
         cout << "Monster dropped a health pack." << endl;
+        cin.ignore();
         player->addItemToInventory(item);
         //player->useHealthPack(); 
-       // cout << "You now have " << player->getHealth() << "coins." << endl; 
+        // cout << "You now have " << player->getHealth() << "coins." << endl; 
     } 
-    else{  
+    else {  
         int currencyAmount = rand() % 50 + 1;  
         cout << "The monster dropped a currency pack." << endl;
         player->addCurrency(currencyAmount);

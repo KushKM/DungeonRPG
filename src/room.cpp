@@ -8,10 +8,10 @@ using namespace std;
 Room::Room(int roomNum){
     roomNumber = roomNum;
     roomMonster = new Monster(200, 5, NULL);
+    
     //For boss rooms multiply monster stats or something
-    if(roomNumber % 5 == 0) {
-        statsMultiplier = 3;
-    } 
+    if(roomNumber % 5 == 0) statsMultiplier = 3;
+
     srand(roomNumber*7); //seed the rand with the roomNumber*7 because it easier
 }
 
@@ -43,5 +43,4 @@ void Room::outputRoomDescription() {
 
 void Room::fightScreen() {
     roomMonster->printMonsterDescription();
-    // cin.ignore();
 }

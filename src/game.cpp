@@ -59,7 +59,7 @@ void Game::createCharacter() {
 //Function that starts a run by "traveling to dungeon..."
 void Game::startDungeonRun() {
     cout << endl << "Traveling to dungeon..." << endl;
-    cin.ignore(); 
+    cin.ignore(); cin.ignore(); 
     
     roomNumber = 1;
     currRoom = new Room(roomNumber);
@@ -70,16 +70,18 @@ void Game::startDungeonRun() {
     Monster* monster = currRoom->roomMonster;
     while(isInDungeon) {
         currRoom->fightScreen();
-        cout << "Player health: " << player->getHealth() << endl;
-        cout << "What would you like to do?(run/fight)\n";
+        cout << "Player health: " << player->getHealth() << endl << endl;
+        cin.ignore();
+        cout << "Run or Fight? (r/f): ";
         cin >> input;
+        cout << endl;
         if(input == "quit"){
             break;
         }
-        if(input == "run"){
+        if(input == "r" || input == "run") {
             player->attemptRun();
         }
-        if(input == "fight"){
+        if(input == "f" || input == "fight") {
             if(monster != nullptr){
                 player->attackEnemy(monster);
                 if(monster->getHealth() <= 0){
@@ -87,16 +89,16 @@ void Game::startDungeonRun() {
                     delete monster; 
                     monster = nullptr; 
                     break;
-                }else{
+                }
+                else{
                     monster->attackEnemy(player);
                     if(player->getHealth() <= 0){
                         onDeath();
                         break;
                     }
                 }
-            }else{
-                cout << "Doesn't exist\n";
             }
+            else cout << "Doesn't exist\n";
         }
     }
 }
@@ -105,14 +107,16 @@ void Game::startDungeonRun() {
 void Game::onDeath() {
     cout << "You died" << endl;
     cout << "You beat " << roomNumber << " rooms." << endl;
-    cout << "Your currency: " << player->getCurrency() << endl;
+    cout << "Your currency: " << player->getCurrency() << endl << endl;
+    cin.ignore(); cin.ignore();
     mainMenuOptions();
 }
 
 //ends the run if player wins (SEMI-DONE, needs better description)
 void Game::onVictory() {
     cout << "You won" << endl;
-    cout << "Your currency: " << player->getCurrency() << endl;
+    cout << "Your currency: " << player->getCurrency() << endl << endl;
+    cin.ignore(); cin.ignore();
     mainMenuOptions();
 }
 

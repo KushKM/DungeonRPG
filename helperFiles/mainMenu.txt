@@ -1,4 +1,6 @@
 Choose an option: 
    1. Enter the dungeon.
    2. Visit Shop.
-   0. Quit game. 
+   0. Quit game.
+
+Input: 
