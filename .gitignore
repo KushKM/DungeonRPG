@@ -6,3 +6,4 @@ cmake_install.cmake
 main
 .vscode/settings.json
 Makefile
+tests
