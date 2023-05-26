@@ -83,7 +83,7 @@ void Game::startDungeonRun() {
             if(monster != nullptr){
                 player->attackEnemy(monster);
                 if(monster->getHealth() <= 0){
-                    monster->monsterItemDrop(); 
+                    monster->monsterItemDrop(player); 
                     delete monster; 
                     monster = nullptr; 
                     break;
