@@ -4,6 +4,7 @@
 #include "character.h"
 #include "monster.h"
 #include "room.h"
+#include "item.h"
 
 class Game {
     private:

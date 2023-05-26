@@ -1,6 +1,10 @@
 #ifndef ITEM
 #define ITEM 
 #include <string>
+#include "character.h"
+#include "entity.h"
+#include "game.h"
+#include "monster.h"
 using namespace std; 
 
 class Item {
