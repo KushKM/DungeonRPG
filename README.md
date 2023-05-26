@@ -52,6 +52,8 @@ Game mechanics: When the player chooses to attack, they will call the attack() f
  > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
  > * What tasks you are planning for this next sprint.
 
+We included some new SOLID design principles within our code since phase II. We firstly applied the S, Single Responsibility, by moving all methods that output information outside of the game class and into their own class. This is because game is supposed to have the one responsibility of running our game. Now, instead of running our game and worrying about menu printing, we have a separate class that can print out everything for the game class now. We plan on using this more for different classes such as the room class, monster class, and character class. Next, we used the L, Liskov Substitution, by allowing the ability to pass any type of sub class into a method and not have it break. We can see this when passing in an entity type object into attackEnemy function and it works. It makes the code much simpler than making multiple methods to do basically the same thing. We implemented D, dependency inversion principle, by creating multiple interfaces to allow for multiple classes to use the same code instead of just relying entirely on classes . We did this by using two abstract classes, Entity and Item which can be used by its subclasses. 
+
  
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
