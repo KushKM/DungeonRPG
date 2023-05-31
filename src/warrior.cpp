@@ -1,15 +1,15 @@
 #include <iostream>
 
 #include "warrior.h"
-#include "character.h"
-#include "monster.h"
-#include "item.h"
 
 using namespace std;
 
-Warrior::Warrior() : Character() {}
-
-Warrior::Warrior(double h, double d, int c, int s) : Character(h, d, c, s) {}
+Warrior::Warrior(){
+    this->health = 40.0;
+    this->damage = 20.0;
+    this->currency = 10;
+    this->speed = 1;
+}
 
 //IDEAS FOR WARRIOR
 //High Damage High Health Low Speed

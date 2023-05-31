@@ -3,6 +3,10 @@
 
 #include "character.h"
 #include "monster.h"
+#include "rogue.h"
+#include "warrior.h"
+#include "wizard.h"
+#include "cleric.h"
 #include "room.h"
 #include "item.h"
 

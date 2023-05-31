@@ -12,7 +12,6 @@ class Cleric : public Character {
         vector<Item*> inventory; 
     public:
         Cleric();
-        Cleric(double h, double d, int c, int s);
         
 };
 

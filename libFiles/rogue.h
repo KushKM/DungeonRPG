@@ -12,7 +12,6 @@ class Rogue : public Character {
         vector<Item*> inventory; 
     public:
         Rogue();
-        Rogue(double h, double d, int c, int s);
         
 };
 

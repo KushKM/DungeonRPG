@@ -12,7 +12,6 @@ class Wizard : public Character {
         vector<Item*> inventory; 
     public:
         Wizard();
-        Wizard(double h, double d, int c, int s);
         
 };
 
