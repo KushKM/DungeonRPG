@@ -8,18 +8,21 @@ using namespace std;
 Room::Room(int roomNum){
     roomNumber = roomNum;
     roomMonster = new Monster(40, 5, NULL);
+    roomMonster = nullptr;
     //For boss rooms multiply monster stats or something
     if(roomNumber % 5 == 0) {
         statsMultiplier = 3;
     } 
 }
 
+Room::~Room(){
+    delete roomMonster;
+}
+
 void Room::outputRoomDescription() {
     cout << "=========\n Room " << roomNumber << "\n=========" << endl;
-    
-    int roomChoice = rand() % 5 + 1;
 
-    switch(roomChoice) {
+    switch(roomNumber) {
         case 1 :
             cout << "You have entered a dimly lit room. There seems to be scratches littered across the wall, each as big as you are. The bones of a creature are scattered throughout the room. Judging by the size of the bones, the now dead creature was probably twice your size. You are in danger.";
             break;
@@ -41,5 +44,11 @@ void Room::outputRoomDescription() {
 }
 
 void Room::fightScreen() {
-    roomMonster->printMonsterDescription();
+    if(roomMonster != nullptr){
+        roomMonster->printMonsterDescription();
+    }
+}
+
+int Room::getRoomNumber(){
+    return roomNumber;
 }

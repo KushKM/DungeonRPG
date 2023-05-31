@@ -14,8 +14,10 @@ class Room {
     public:
         Monster* roomMonster;
         Room(int roomNum);
+        ~Room();
         void outputRoomDescription(); 
         void fightScreen();
+        int getRoomNumber();
 };
 
 #endif
