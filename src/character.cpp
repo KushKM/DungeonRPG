@@ -17,16 +17,16 @@ void Character::attemptRun() {
 void Character::addItemToInventory(Item* item){
     inventory.push_back(item);
     cout << "Added " << item->getName() << " to inventory." << endl; 
-
-    healthPack* h = dynamic_cast<healthPack*>(item);
-    if(h != nullptr){
-        int healthAmount = h->getHealthPack();
-        cout << "Used a health pack. Restored " << healthAmount << " health." << endl;
-    }
 }
 
 int Character::getCurrency() {return currency;}
 
 void Character::addCurrency(int amount){
     currency += amount; 
+}
+
+void Character::listInventory(){
+    for(int i = 0; i < inventory.size(); i++){
+        cout << i + 1 << ". " << inventory.at(i)->getName() << endl;
+    }
 }

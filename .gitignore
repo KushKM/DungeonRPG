@@ -7,3 +7,4 @@ main
 .vscode/settings.json
 Makefile
 tests
+lib/
