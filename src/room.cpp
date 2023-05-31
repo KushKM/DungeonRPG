@@ -42,5 +42,4 @@ void Room::outputRoomDescription() {
 
 void Room::fightScreen() {
     roomMonster->printMonsterDescription();
-    // cin.ignore();
 }
