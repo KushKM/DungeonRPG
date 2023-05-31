@@ -1,27 +1,49 @@
 #include "game.h"
 #include <iostream>
 #include <fstream>
+#include <math.h>
+#include <cstdlib>
+#include <ctime>
+#include <limits>
 using namespace std;
 
 void printClassesIntro();
 void printMainMenu();
+
+Game::Game(){
+    srand(time(NULL));
+}
+
+Game::~Game(){
+    cout << "Game over...\n";
+}
 
 //will print and ask for menuoptions (DONE)
 void Game::mainMenuOptions() {
     printMainMenu();
 
     int choice = -1;
-    cin >> choice;
-    while(!(choice == 1 || choice == 2 || choice == 0)) {
-        cout << "Invalid Choice" << endl;
+    while(!(choice >= 1 && choice <= 3)) {
         cin >> choice;
+        if(choice >= 4 || choice <= 0){
+            cout << "Invalid Choice. Try again: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
     }
 
     cout << endl;
     switch(choice) {
-        case 1: startDungeonRun();
-        case 2: displayShop();
-        case 0: return; //quit game, used number 0 so it doesnst get pressed by accident
+        case 1: 
+            startDungeonRun();
+            break;
+        case 2: 
+            displayShop();
+            break;
+        case 3: 
+            return; //quit game, used number 0 so it doesnst get pressed by accident
+            break;
     }
 }
 
@@ -30,9 +52,14 @@ void Game::createCharacter() {
     printClassesIntro();
     
     int choice = -1;
-    cin >> choice;
     while(!(choice >= 1 && choice <= 4)) { 
-        cout << "invalid choice. Try again: ";      cin >> choice;
+        cin >> choice;
+        if(choice >= 5 || choice <= 0){
+            cout << "Invalid choice. Try again: "; 
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');  
+            continue; 
+        }
     }
 
     cout << "   You chose the ";
@@ -63,6 +90,7 @@ void Game::startDungeonRun() {
     
     roomNumber = 1;
     currRoom = new Room(roomNumber);
+    
     currRoom->outputRoomDescription();
 
     bool isInDungeon = true;
@@ -80,12 +108,17 @@ void Game::startDungeonRun() {
         }
         if(input == "r" || input == "run") {
             player->attemptRun();
+            if(player->getHealth() <= 0){
+                onDeath();
+                break;
+            }
         }
         if(input == "f" || input == "fight") {
             if(monster != nullptr){
                 player->attackEnemy(monster);
                 if(monster->getHealth() <= 0){
                     monster->monsterItemDrop(player); 
+                    player->listInventory();
                     delete monster; 
                     monster = nullptr; 
                     break;
@@ -101,6 +134,7 @@ void Game::startDungeonRun() {
             else cout << "Doesn't exist\n";
         }
     }
+    
 }
 
 //ends the run if player dies (SEMI-DONE, needs better description)
@@ -137,5 +171,7 @@ void printClassesIntro() {
 void printMainMenu() {
     ifstream file("helperFiles/mainMenu.txt");
     if(file.is_open()) cout << file.rdbuf();
+
+    cout << endl;
     file.close();
 }

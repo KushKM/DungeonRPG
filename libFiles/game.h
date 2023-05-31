@@ -10,16 +10,19 @@ class Game {
     private:
         Character* player;
         Room* currRoom;
+        int totalDungeonSize;
         int roomNumber = 0;
     public: 
-        Game() {}
+        Game();
+        ~Game();
         void mainMenuOptions();
         void createCharacter();
         void startDungeonRun();
         void onVictory();
         void onDeath();
         void displayShop();
-        void newRoom();
+        void createLevel(int);
+
 };
 
 #endif

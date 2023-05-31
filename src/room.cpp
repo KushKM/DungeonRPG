@@ -1,18 +1,17 @@
 #include "room.h"
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+#include <math.h>
 using namespace std;
 
 
 Room::Room(int roomNum){
     roomNumber = roomNum;
-    roomMonster = new Monster(200, 5, NULL);
-    
+    roomMonster = new Monster(40, 5, NULL);
     //For boss rooms multiply monster stats or something
-    if(roomNumber % 5 == 0) statsMultiplier = 3;
-
-    srand(roomNumber*7); //seed the rand with the roomNumber*7 because it easier
+    if(roomNumber % 5 == 0) {
+        statsMultiplier = 3;
+    } 
 }
 
 void Room::outputRoomDescription() {
