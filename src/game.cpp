@@ -168,16 +168,17 @@ void Game::createDungeon(int totalSize){
 void Game::changeRooms(){
     vector<string> directions;
     string input;
-    if(roomIndex > 5){
+    int sqr = (int)(sqrt(totalDungeonSize));
+    if(roomIndex > sqr){
         directions.push_back("North");
     }
-    if(roomIndex <= 20){
+    if(roomIndex <= totalDungeonSize - sqr){
         directions.push_back("South");
     }
-    if(roomIndex % (int)(sqrt(totalDungeonSize)) != 1){
+    if(roomIndex % sqr != 1){
         directions.push_back("West");
     }
-    if(roomIndex % (int)(sqrt(totalDungeonSize)) != 0){
+    if(roomIndex % sqr != 0){
         directions.push_back("East");
     }
 
