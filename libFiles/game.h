@@ -5,6 +5,7 @@
 #include "monster.h"
 #include "room.h"
 #include "item.h"
+#include <vector>
 
 class Game {
     private:
@@ -12,6 +13,8 @@ class Game {
         Room* currRoom;
         int totalDungeonSize;
         int roomNumber = 0;
+        vector<Room*> dungeonRooms;
+        int roomIndex;
     public: 
         Game();
         ~Game();
@@ -21,7 +24,8 @@ class Game {
         void onVictory();
         void onDeath();
         void displayShop();
-        void createLevel(int);
+        void createDungeon(int);
+        void changeRooms();
 
 };
 
