@@ -1,6 +1,6 @@
 //IDEAS FOR WIZARD
 //High Damage Low Health Medium Speed
-//Attacks apply DOT effect
+//Attacks have chance to do large amounts of damage
 
 #include <iostream>
 
