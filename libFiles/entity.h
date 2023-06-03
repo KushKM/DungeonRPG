@@ -10,8 +10,8 @@ class Entity {
         Entity();
         //health, damage. May add speed later
         Entity(double, double);
-        void attackEnemy(Entity*);
-        void takeDamage(int);
+        virtual void attackEnemy(Entity*);
+        virtual void takeDamage(int);
         int getCurrency();
         double getHealth();
         double getDamage();

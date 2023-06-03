@@ -12,6 +12,7 @@ class Wizard : public Character {
         vector<Item*> inventory; 
     public:
         Wizard();
+        void attackEnemy(Entity*) override;
         
 };
 

@@ -12,6 +12,7 @@ class Warrior : public Character {
         vector<Item*> inventory; 
     public:
         Warrior();
+        void attackEnemy(Entity*) override;
 
 };
 

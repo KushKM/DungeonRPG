@@ -15,6 +15,10 @@ ADD_EXECUTABLE(main
     src/game.cpp
     src/room.cpp
     src/item.cpp
+    src/cleric.cpp
+    src/rogue.cpp
+    src/warrior.cpp
+    src/wizard.cpp
 )
 
 ADD_EXECUTABLE(tests

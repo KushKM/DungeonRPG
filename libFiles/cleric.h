@@ -12,6 +12,7 @@ class Cleric : public Character {
         vector<Item*> inventory; 
     public:
         Cleric();
+        void takeDamage(int) override;
         
 };
 

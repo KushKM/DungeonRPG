@@ -11,6 +11,8 @@ Warrior::Warrior(){
     this->speed = 1;
 }
 
-//IDEAS FOR WARRIOR
-//High Damage High Health Low Speed
-//No special abilities
+void Warrior::attackEnemy(Entity* e){
+    double damageCalc = 40 - this->health;
+    damage += damageCalc/2;
+    e->takeDamage(getDamage());
+}

@@ -14,3 +14,13 @@ Cleric::Cleric(){
     this->currency = 10;
     this->speed = 3;
 }
+
+void Cleric::takeDamage(int dmg){
+    int healChance = rand() % 9 + 1;
+    if(healChance < 4){
+        this->health = this->health - dmg + 3.0;
+        //DISPLAY MESSAGE THAT YOU HEALED THIS TURN
+    } else {
+        this->health = this->health - dmg;
+    }
+}

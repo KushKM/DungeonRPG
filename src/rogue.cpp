@@ -14,3 +14,12 @@ Rogue::Rogue(){
     this->currency = 10;
     this->speed = 10;
 }
+
+void Rogue::takeDamage(int dmg){
+    int dodgeChance = rand() % 10 + 1;
+    if(dodgeChance < 3){
+        //DISPLAY THAT THEY DODGED THE ATTACK
+    } else {
+        this->health = this->health - dmg;
+    }
+}

@@ -12,6 +12,7 @@ class Rogue : public Character {
         vector<Item*> inventory; 
     public:
         Rogue();
+        void takeDamage(int) override;
         
 };
 

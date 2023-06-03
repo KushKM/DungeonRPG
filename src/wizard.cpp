@@ -14,3 +14,11 @@ Wizard::Wizard(){
     this->currency = 10;
     this->speed = 5;
 }
+
+void Wizard::attackEnemy(Entity* e){
+    int damageCalc = rand() % 9 + 1;
+    if(damageCalc < 4){
+        this->damage = 35;
+    }
+    e->takeDamage(getDamage());
+}
