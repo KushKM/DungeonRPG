@@ -73,19 +73,19 @@ void Game::createCharacter() {
     switch(choice) {
         case 1:
             cout << "Wizard." << endl;
-            this->player = new Character(20, 15, 10, 5);
+            this->player = new Wizard();
             break;
         case 2:
             cout << "Rogue." << endl;
-            this->player = new Character(30, 20, 10, 8);
+            this->player = new Rogue();
             break;
         case 3:
-            cout << "Brute." << endl;
-            this->player = new Character(40, 15, 10, 1);
+            cout << "Warrior." << endl;
+            this->player = new Warrior();
             break;
         case 4:
-            cout << "cleric." << endl;
-            this->player = new Character(30, 20, 10, 3);
+            cout << "Cleric." << endl;
+            this->player = new Cleric();
             break;
     }
 }

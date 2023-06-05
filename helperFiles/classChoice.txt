@@ -9,7 +9,7 @@ Choose your class:
    2. Rogue
         - medium health and damage
         - small chance to dodge attacks
-   3. Brute
+   3. Warrior
         - high health
         - low damage
         - does higher damage as his health drops

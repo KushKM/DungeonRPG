@@ -10,7 +10,10 @@ Room::Room(int roomNum){
     roomMonster = new Monster(40, 5, NULL);
     roomMonster = nullptr;
     //For boss rooms multiply monster stats or something
-    if(roomNumber % 5 == 0) {
+    if(roomNumber == 25){
+        //FINAL BOSS
+        statsMultiplier = 5;
+    } else if(roomNumber % 5 == 0) {
         statsMultiplier = 3;
     } 
 }
