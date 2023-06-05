@@ -2,20 +2,29 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <time.h>
 using namespace std;
 
 
 Room::Room(int roomNum){
     roomNumber = roomNum;
-    roomMonster = new Monster(40, 5, NULL);
-    roomMonster = nullptr;
+    srand(time(NULL));
+    int randHealth = (rand() % 6 + 1) *10;
+    int randDmg = rand() % 15 + 1;
+
     //For boss rooms multiply monster stats or something
-    if(roomNumber == 25){
+    if(roomNumber == 25) {
         //FINAL BOSS
-        statsMultiplier = 5;
+        statsMultiplier = 4;
+        roomMonster = new Monster(randHealth*statsMultiplier, randDmg*statsMultiplier, NULL);
+
     } else if(roomNumber % 5 == 0) {
-        statsMultiplier = 3;
+        statsMultiplier = 2;
+        roomMonster = new Monster(randHealth*statsMultiplier, randDmg*statsMultiplier, NULL);
     } 
+    else{
+        roomMonster = new Monster(randHealth, randDmg, NULL);
+    }
 }
 
 Room::~Room(){

@@ -39,8 +39,8 @@ void Game::mainMenuOptions() {
             continue;
         }
     }
-
     cout << endl;
+    
     switch(choice) {
         case 1: 
             startDungeonRun();
@@ -95,21 +95,18 @@ void Game::startDungeonRun() {
     cout << endl << "Traveling to dungeon..." << endl;
     cin.ignore(); cin.ignore(); 
     
-    //currRoom->outputRoomDescription();
-
     bool isInDungeon = true;
     string input;
     Monster* monster = currRoom->roomMonster;
     while(isInDungeon) {
         currRoom->outputRoomDescription();
+        cout << "#### Stats ####: " << endl;
         currRoom->fightScreen();
-        cout << "Player health: " << player->getHealth() << endl << endl;
+        cout << "Player health: " << player->getHealth() << endl;
         cin.ignore();
 
-
-        cout << "Type 'quit' to end program(dev note) Run or Fight or Move on(if all monsters dead)? (r/f/m): ";
-        cin >> input;
-        cout << endl;
+        cout << "Run or Fight or Move on (if all monsters dead)? (r/f/m): ";
+        cin >> input;   cout << endl;
         if(input == "quit"){
             break;
         }
@@ -119,8 +116,7 @@ void Game::startDungeonRun() {
         if(input == "r" || input == "run") {
             player->attemptRun();
             if(player->getHealth() <= 0){
-                onDeath();
-                break;
+                onDeath(); break;
             }
         }
         if(input == "f" || input == "fight") {
@@ -136,8 +132,7 @@ void Game::startDungeonRun() {
                 else{
                     monster->attackEnemy(player);
                     if(player->getHealth() <= 0){
-                        onDeath();
-                        break;
+                        onDeath();  break;
                     }
                 }
             }
@@ -154,9 +149,7 @@ void Game::createDungeon(int totalSize){
         for(int k = 0; k < length; k++){
             int randNum = (rand() % 4) + 1;
             //is the room on the far right in the middle
-            if(i == length / 2 && k == length - 1){
-                randNum = 5;
-            }
+            if(i == length / 2 && k == length - 1) { randNum = 5;}
             Room* newRoom = new Room(randNum);
             dungeonRooms.push_back(newRoom);
         }
@@ -169,48 +162,30 @@ void Game::changeRooms(){
     vector<string> directions;
     string input;
     int sqr = (int)(sqrt(totalDungeonSize));
-    if(roomIndex > sqr){
-        directions.push_back("North");
-    }
-    if(roomIndex <= totalDungeonSize - sqr){
-        directions.push_back("South");
-    }
-    if(roomIndex % sqr != 1){
-        directions.push_back("West");
-    }
-    if(roomIndex % sqr != 0){
-        directions.push_back("East");
-    }
+
+    if(roomIndex > sqr) { directions.push_back("North");}
+    if(roomIndex <= totalDungeonSize - sqr) {directions.push_back("South");}
+    if(roomIndex % sqr != 1) { directions.push_back("West"); }
+    if(roomIndex % sqr != 0) {directions.push_back("East"); }
 
     bool wasDirection = false;
     while(!wasDirection){
         cout << "Type 'quit' to leave choice(dev note) Which way would you like to go? You can go ";
         for(int i = 0; i < directions.size(); i++){
             cout << directions.at(i);
-            if(i < directions.size() - 1){
-                cout << ", ";
-            }
+            if(i < directions.size() - 1) { cout << ", ";}
         }
         cout << endl;
         cin >> input;
-        if(input == "quit"){
-            break;
-        }
+        if(input == "quit") { break;}
+
         for(int i = 0; i < directions.size(); i++){
             if(input == directions.at(i)){
                 wasDirection = true;
-                if(input == "East"){
-                    roomIndex++;
-                }
-                if(input == "North"){
-                    roomIndex -= (int)(sqrt(totalDungeonSize));
-                }
-                if(input == "South"){
-                    roomIndex += (int)(sqrt(totalDungeonSize));
-                }
-                if(input == "West"){
-                    roomIndex--;
-                }
+                if(input == "East") { roomIndex++;}
+                if(input == "North") { roomIndex -= (int)(sqrt(totalDungeonSize)); }
+                if(input == "South") { roomIndex += (int)(sqrt(totalDungeonSize)); }
+                if(input == "West") { roomIndex--; }
                 currRoom = dungeonRooms.at(roomIndex);
                 break;
             }
@@ -220,8 +195,8 @@ void Game::changeRooms(){
 
 //ends the run if player dies (SEMI-DONE, needs better description)
 void Game::onDeath() {
-    cout << "You died" << endl;
-    cout << "You beat " << roomNumber << " rooms." << endl;
+    cout << "You perished at the hands of a foul beast." << endl;
+    cout << "You reached room " << roomNumber << "." << endl;
     cout << "Your currency: " << player->getCurrency() << endl << endl;
     cin.ignore(); cin.ignore();
     mainMenuOptions();
@@ -229,7 +204,7 @@ void Game::onDeath() {
 
 //ends the run if player wins (SEMI-DONE, needs better description)
 void Game::onVictory() {
-    cout << "You won" << endl;
+    cout << "You vanquished all the enemies and may peacfully retire." << endl;
     cout << "Your currency: " << player->getCurrency() << endl << endl;
     cin.ignore(); cin.ignore();
     mainMenuOptions();
@@ -252,7 +227,6 @@ void printClassesIntro() {
 void printMainMenu() {
     ifstream file("helperFiles/mainMenu.txt");
     if(file.is_open()) cout << file.rdbuf();
-
     cout << endl;
     file.close();
 }

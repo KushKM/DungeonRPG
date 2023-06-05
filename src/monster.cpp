@@ -5,7 +5,6 @@
 #include <cstdlib>
 using namespace std;
 
-
 Monster::Monster() : Entity(), item(nullptr){}
 
 Monster::Monster(double h, double d, Item* i) : Entity(h, d), item(i){}

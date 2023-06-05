@@ -3,6 +3,7 @@
 #include "monster.h"
 #include "item.h"
 #include <cstdlib>
+#include <time.h> 
 using namespace std;
 
 Character::Character() : Entity(), currency(0), speed(0){}
@@ -10,13 +11,13 @@ Character::Character() : Entity(), currency(0), speed(0){}
 Character::Character(double h, double d, int c, int s) : Entity(h, d), currency(c), speed(s) {}
 
 void Character::attemptRun() {
-    //if fails ofc
+    srand(time(NULL));
     int chance = rand() % 20;
-    //25% chance for now :)
     if(chance < 5){
-        //figure out what to do. what i was thinking was to make this a bool method and just check the chance and do everything else in game.cpp
-    }else{
-        takeDamage(5);
+        //move to different room here
+    }
+    else{
+        takeDamage(10);
         cout << "########## Escape failed ##########" << endl << endl; //stub
         cin.ignore(); cin.ignore();
     }
