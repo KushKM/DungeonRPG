@@ -8,12 +8,7 @@
 
 using namespace std;
 
-Wizard::Wizard(){
-    this->health = 20.0;
-    this->damage = 20.0;
-    this->currency = 10;
-    this->speed = 5;
-}
+Wizard::Wizard() : Character(20.0, 20.0, 10, 5){}
 
 void Wizard::attackEnemy(Entity* e){
     int damageCalc = rand() % 9 + 1;

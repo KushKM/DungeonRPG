@@ -8,12 +8,7 @@
 
 using namespace std;
 
-Rogue::Rogue(){
-    this->health = 17.5;
-    this->damage = 25.0;
-    this->currency = 10;
-    this->speed = 10;
-}
+Rogue::Rogue() : Character(17.5, 25.0, 10, 10){}
 
 void Rogue::takeDamage(int dmg){
     int dodgeChance = rand() % 10 + 1;

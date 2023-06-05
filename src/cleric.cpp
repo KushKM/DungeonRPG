@@ -8,12 +8,7 @@
 
 using namespace std;
 
-Cleric::Cleric(){
-    this->health = 30.0;
-    this->damage = 15.0;
-    this->currency = 10;
-    this->speed = 3;
-}
+Cleric::Cleric() : Character(30.0, 15.0, 10, 3){}
 
 void Cleric::takeDamage(int dmg){
     int healChance = rand() % 9 + 1;
