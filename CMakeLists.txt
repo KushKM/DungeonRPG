@@ -23,6 +23,7 @@ ADD_EXECUTABLE(main
 
 ADD_EXECUTABLE(tests
     test/roomFunctionTest.cpp
+    test/entityTest.cpp
 )
 
 target_link_libraries(tests gtest gtest_main)
