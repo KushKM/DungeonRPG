@@ -38,3 +38,5 @@ TEST(entityTests, getCurrency){
     Entity* testEntity = new Entity();
     EXPECT_EQ(testEntity->getCurrency(), 0);
 }
+
+TEST()
