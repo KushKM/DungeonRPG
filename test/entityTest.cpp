@@ -64,3 +64,12 @@ TEST(wizardTests, attackEnemy){
                 << "Where health: " << damagedEntity->getHealth() << ", should equal 5 if you get a crit or 20 if you don't.";
 
 }
+
+TEST(warriorTests, attackEnemy){
+    Entity* damagedEntity = new Entity(40.0, 10.0);
+    Entity* testWarrior = new Warrior();
+    testWarrior->takeDamage(20);
+    cout << testWarrior->getDamage() << endl;
+    testWarrior->attackEnemy(damagedEntity);
+    EXPECT_EQ(damagedEntity->getHealth(), 15);
+}

@@ -13,7 +13,6 @@ class Warrior : public Character {
     public:
         Warrior();
         void attackEnemy(Entity*) override;
-
 };
 
 
