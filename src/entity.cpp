@@ -14,9 +14,16 @@ void Entity::attackEnemy(Entity* e){
 void Entity::takeDamage(int dmg) {
     this->health = this->health - dmg;
 }
+void Entity::setHealth(double s){
+    health = s; 
+}
 
 double Entity::getHealth() {
     return this->health;
+}
+
+void Entity::setDamage(double d){
+    damage = d; 
 }
 
 double Entity::getDamage(){

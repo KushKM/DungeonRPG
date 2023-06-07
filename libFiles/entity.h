@@ -13,7 +13,9 @@ class Entity {
         virtual void attackEnemy(Entity*);
         virtual void takeDamage(int);
         int getCurrency();
+        void setHealth(double );
         double getHealth();
+        void setDamage(double ); 
         double getDamage();
 };
 #endif
