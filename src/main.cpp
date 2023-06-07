@@ -10,6 +10,7 @@ int main() {
 
     Game* g = new Game();
     g->createCharacter();
+    g->createDungeon(25);
     g->startDungeonRun();
     delete g;
 

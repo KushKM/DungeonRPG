@@ -29,7 +29,11 @@ class Game {
         void onDeath();
         void displayShop();
         void createDungeon(int);
-        void changeRooms();
+        void changeRooms(int);
+        void changeRoom(std::string&);
+
+        //test functions
+        int getRoomIndex();
 
 };
 
