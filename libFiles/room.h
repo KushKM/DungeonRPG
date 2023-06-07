@@ -8,7 +8,7 @@
 
 class Room {
     private:
-        Item item;
+        Item* item;
         int roomNumber;
         int statsMultiplier;
     public:
@@ -18,6 +18,7 @@ class Room {
         void outputRoomDescription(); 
         void fightScreen();
         int getRoomNumber();
+        Item* getItem();
 };
 
 #endif
