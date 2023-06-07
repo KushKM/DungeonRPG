@@ -1,5 +1,12 @@
 #include "gtest/gtest.h"
 #include "entity.cpp"
+#include "cleric.cpp"
+#include "rogue.cpp"
+#include "warrior.cpp"
+#include "wizard.cpp"
+#include "monster.cpp"
+#include "character.cpp"
+#include "item.cpp"
 
 TEST(entityTests, defaultConstructorHealth){
     Entity* testEntity = new Entity();
@@ -39,4 +46,21 @@ TEST(entityTests, getCurrency){
     EXPECT_EQ(testEntity->getCurrency(), 0);
 }
 
-TEST()
+TEST(clericTests, takeDamage){
+    Entity* clericTest = new Cleric();
+    clericTest->takeDamage(5);
+    cout <<  clericTest->getHealth() << endl;
+    EXPECT_TRUE(clericTest->getHealth() == 25 || clericTest->getHealth() == 28)
+                << "Where health: " << clericTest->getHealth() << ", should equal 25 if you don't heal or 28 if you do heal.";
+
+}
+
+TEST(wizardTests, attackEnemy){
+    Entity* damagedEntity = new Entity(40.0, 10.0);
+    Entity* testWizard = new Wizard();
+    testWizard->attackEnemy(damagedEntity);
+    cout << damagedEntity->getHealth() << endl;
+    EXPECT_TRUE(damagedEntity->getHealth() == 20 || damagedEntity->getHealth() == 5)
+                << "Where health: " << damagedEntity->getHealth() << ", should equal 5 if you get a crit or 20 if you don't.";
+
+}

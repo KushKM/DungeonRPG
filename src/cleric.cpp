@@ -12,10 +12,11 @@ Cleric::Cleric() : Character(30.0, 15.0, 10, 3){}
 
 void Cleric::takeDamage(int dmg){
     int healChance = rand() % 9 + 1;
-    if(healChance < 4){
-        this->health = this->health - dmg + 3.0;
-        //DISPLAY MESSAGE THAT YOU HEALED THIS TURN
+    if(healChance > 4){
+        Entity::takeDamage(dmg);
     } else {
-        this->health = this->health - dmg;
+        Entity::takeDamage(dmg - 3);
+        //DISPLAY MESSAGE THAT YOU HEALED THIS TURN
+        
     }
 }
