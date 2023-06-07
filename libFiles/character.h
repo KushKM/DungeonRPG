@@ -22,6 +22,7 @@ class Character : public Entity {
         void addCurrency(int amount); 
         void addItemToInventory(Item*); 
         void listInventory();
+        void resetValues();
 };
 
 #endif

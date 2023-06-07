@@ -86,12 +86,14 @@ void Game::createCharacter() {
             this->player = new Cleric();
             break;
     }
+    cin.ignore(); cin.ignore();
 }
 
 //Function that starts a run by "traveling to dungeon..."
 void Game::startDungeonRun() {
-    cout << endl << "Traveling to dungeon..." << endl;
-    cin.ignore(); cin.ignore(); 
+    player->resetValues();
+    cout << endl << "%%%%%% Traveling to dungeon... %%%%%%" << endl;
+    cin.ignore();  
     
     currRoom->outputRoomDescription();
 
@@ -99,15 +101,12 @@ void Game::startDungeonRun() {
     string input;
     while(isInDungeon) {
         currRoom->fightScreen();
-        cout << "Player health: " << player->getHealth() << endl;
-        cin.ignore();
+        cout << "           Player health: " << player->getHealth() << endl;
+        cin.ignore(); cin.ignore();
 
-        cout << "Type 'quit' to end program(dev note) Run or Fight or Move on(if all monsters dead)? (r/f/m): ";
+        cout << "Run, Fight or Move on (if all monsters dead)? (r/f/m): ";
         cin >> input;
         cout << endl;
-        if(input == "quit"){
-            break;
-        }
         if(currRoom->roomMonster == nullptr && (input == "move" || input == "m")){
             changeRooms(0);
         }
@@ -127,6 +126,7 @@ void Game::startDungeonRun() {
                     currRoom->roomMonster->monsterItemDrop(player); 
                     player->listInventory(); 
                     currRoom->roomMonster = nullptr; 
+                    roomNumber++;
                     changeRooms(0);
                 }
                 else{
@@ -167,20 +167,13 @@ void Game::changeRooms(int num){
         player->addItemToInventory(currRoom->getItem());
     }
     vector<string> directions;
-    string input;
     int sqr = (int)(sqrt(totalDungeonSize));
-    if(roomIndex > sqr){
-        directions.push_back("North");
-    }
-    if(roomIndex <= totalDungeonSize - sqr){
-        directions.push_back("South");
-    }
-    if(roomIndex % sqr != 1){
-        directions.push_back("West");
-    }
-    if(roomIndex % sqr != 0){
-        directions.push_back("East");
-    }
+
+    if(roomIndex > sqr) directions.push_back("North");
+    if(roomIndex <= totalDungeonSize - sqr) directions.push_back("South");
+    if(roomIndex % sqr != 1) directions.push_back("West");
+    if(roomIndex % sqr != 0) directions.push_back("East");
+
     if(num == 1){
         changeRoom(directions.at(0));
         currRoom = dungeonRooms.at(roomIndex);
@@ -188,7 +181,7 @@ void Game::changeRooms(int num){
     }else{
         bool wasDirection = false;
         while(!wasDirection){
-            cout << "Type 'quit' to leave choice(dev note) Which way would you like to go? You can go ";
+            cout << "Which way would you like to go? You can go ";
             for(int i = 0; i < directions.size(); i++){
                 cout << directions.at(i);
                 if(i < directions.size() - 1){
@@ -196,10 +189,9 @@ void Game::changeRooms(int num){
                 }
             }
             cout << endl;
+            
+            string input;
             cin >> input;
-            if(input == "quit"){
-                break;
-            }
             for(int i = 0; i < directions.size(); i++){
                 if(input == directions.at(i)){
                     wasDirection = true;
@@ -214,18 +206,10 @@ void Game::changeRooms(int num){
 }
 
 void Game::changeRoom(string& newRoom){
-    if(newRoom == "East"){
-        roomIndex++;
-    }
-    if(newRoom == "North"){
-        roomIndex -= (int)(sqrt(totalDungeonSize));
-    }
-    if(newRoom == "South"){
-        roomIndex += (int)(sqrt(totalDungeonSize));
-    }
-    if(newRoom == "West"){
-        roomIndex--;
-    }
+    if(newRoom == "East") roomIndex++;
+    if(newRoom == "North") roomIndex -= (int)(sqrt(totalDungeonSize));
+    if(newRoom == "South") roomIndex += (int)(sqrt(totalDungeonSize));
+    if(newRoom == "West") roomIndex--;
 }
 
 //ends the run if player dies (SEMI-DONE, needs better description)

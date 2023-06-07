@@ -13,6 +13,7 @@ class Wizard : public Character {
     public:
         Wizard();
         void attackEnemy(Entity*) override;
+        void resetValues();
         
 };
 
