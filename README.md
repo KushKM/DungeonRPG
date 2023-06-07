@@ -7,6 +7,8 @@
  [Julian](https://github.com/jgonz671), 
  [Daniel](https://github.com/drodr211)
  
+ ![BADGE](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/actions/workflows/c-cpp.yml/badge.svg)
+ 
 ## Project Description
 * Text-based RPG game with rougelite elements, where you fight through rooms to defeat monsters and earn currency to permanently upgrade your character.
 * We will be using C++ with VSCode. We will be using Git/Github to share, save, edit, and finalize our code as a group. We will also be using Cmake/make allowing us to compile and run much easier. We will use Valgrind to detect whether we had any memory leaks within our code. Finally, we will use Googletest framework to test our functions/code to ensure that they work.
