@@ -26,3 +26,11 @@ void healthPack::use(){
 void currencyPack::use(){
     cout << "Gained currency pack. Adding " << getCurrency() << " coins." << endl; 
 }
+
+void damageBooster::use(){
+    cout << "Using damage booster. Multiplying by 1.5x." << player->setDamage((player->getDamage() * 1.5)); 
+}
+
+void Shield::use(){
+    cout << "Shield absorbed the next hit." << endl; 
+}

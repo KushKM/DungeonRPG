@@ -24,6 +24,19 @@ bool Character::attemptRun() {
     }
 }
 
+void Character::equipShield() {
+    hasShield = true;
+}
+
+bool Character::hasShieldEquipped() {
+    return hasShield;
+}
+
+void Character::removeShield() {
+    hasShield = false;
+}
+
+
 void Character::addItemToInventory(Item* item){
     inventory.push_back(item);
     cout << "Added " << item->getName() << " to inventory." << endl; 
@@ -39,4 +52,15 @@ void Character::listInventory(){
     for(int i = 0; i < inventory.size(); i++){
         cout << i + 1 << ". " << inventory.at(i)->getName() << endl;
     }
+}
+
+
+void Character::useItemFromInventory(int index) {
+    if (index < 0 || index >= inventory.size()) {
+        cout << "Invalid item index!" << endl;
+        return;
+    }
+    Item* item = inventory[index];
+    item->use();
+    inventory.erase(inventory.begin() + index);
 }

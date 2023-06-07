@@ -4,7 +4,10 @@
 
 using namespace std; 
 
+class Character;
+
 class Item {
+
     private: 
         string name; 
         int healthPack; 
@@ -38,5 +41,21 @@ class currencyPack : public Item {
         currencyPack(string itemName, int currencyAmount) : Item(itemName, 0, currencyAmount) {}
         void use() override; 
 };
+
+class damageBooster : public Item { 
+    public: 
+    damageBooster() : Item() {}
+    damageBooster(string itemName) : Item(itemName, 0, 0) {}
+    void use() override; 
+};
+
+class Shield : public Item {
+    public:
+    Shield() : Item() {}
+    Shield(string itemName) : Item(itemName, 0, 0) {}
+    void use() override;
+
+};
+
 
 #endif
