@@ -17,3 +17,10 @@ void Wizard::attackEnemy(Entity* e){
     }
     e->takeDamage(getDamage());
 }
+
+void Wizard::resetValues() {
+    health = 20;
+    damage = 20;
+    currency = 10;
+    speed = 5;
+}

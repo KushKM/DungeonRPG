@@ -37,6 +37,7 @@ void Character::addCurrency(int amount){
 
 void Character::listInventory(){
     for(int i = 0; i < inventory.size(); i++){
-        cout << i + 1 << ". " << inventory.at(i)->getName() << endl;
+        cout << "   " << i + 1 << ". " << inventory.at(i)->getName() << endl;
     }
+    cout << endl;
 }

@@ -10,12 +10,10 @@ Monster::Monster() : Entity(), item(nullptr){}
 
 Monster::Monster(double h, double d, Item* i) : Entity(h, d), item(i){}
 
-Monster::~Monster(){
-    delete item;
-}
+Monster::~Monster() { delete item;}
 
 void Monster::printMonsterDescription(){
-    cout << "Monster health: " << getHealth() << endl;
+    cout << "           Monster health: " << getHealth() << endl;
 }
 
 void Monster::monsterItemDrop(Character* player){

@@ -11,3 +11,10 @@ void Warrior::attackEnemy(Entity* e){
     damage += damageCalc/2;
     e->takeDamage(getDamage());
 }
+
+void Warrior::resetValues() {
+    health = 40;
+    damage = 20;
+    currency = 10;
+    speed = 1;
+}

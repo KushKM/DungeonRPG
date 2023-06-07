@@ -19,3 +19,10 @@ void Cleric::takeDamage(int dmg){
         this->health = this->health - dmg;
     }
 }
+
+void Cleric::resetValues() {
+    health = 30;
+    damage = 15.0;
+    currency = 10;
+    speed = 3;
+}
