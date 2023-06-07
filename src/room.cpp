@@ -7,15 +7,31 @@ using namespace std;
 
 Room::Room(int roomNum){
     roomNumber = roomNum;
-    roomMonster = new Monster(40, 5, NULL);
     roomMonster = nullptr;
     //For boss rooms multiply monster stats or something
-    if(roomNumber == 25){
-        //FINAL BOSS
-        statsMultiplier = 5;
-    } else if(roomNumber % 5 == 0) {
+    if(roomNumber == 5) {
         statsMultiplier = 3;
-    } 
+        Item* mItem = new currencyPack("Currency", 100);
+        roomMonster = new Monster(150, 18, mItem);
+        item = nullptr;
+    }else if(roomNumber == 1){
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem);
+        item = nullptr;
+    }else if(roomNumber == 2){
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem);
+        item = nullptr;
+    }else if(roomNumber == 3){
+        //random item?
+        item = new healthPack("Health Pack", 20);
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem);
+    }else if(roomNumber == 4){
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem);
+        item = nullptr;
+    }
 }
 
 Room::~Room(){
@@ -48,10 +64,18 @@ void Room::outputRoomDescription() {
 
 void Room::fightScreen() {
     if(roomMonster != nullptr){
+        cout << "   %% There is a monster in front of you! %%\n";
         roomMonster->printMonsterDescription();
     }
 }
 
 int Room::getRoomNumber(){
     return roomNumber;
+}
+
+Item* Room::getItem(){
+    if(item != nullptr){
+        return item;
+    }
+    return nullptr;
 }

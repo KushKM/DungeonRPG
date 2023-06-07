@@ -17,11 +17,12 @@ class Character : public Entity {
     public:
         Character();
         Character(double h, double d, int c, int s);
-        void attemptRun();
+        bool attemptRun();
         int getCurrency();
         void addCurrency(int amount); 
         void addItemToInventory(Item*); 
         void listInventory();
+        virtual void resetValues() = 0;
 };
 
 #endif
