@@ -13,6 +13,7 @@ class Rogue : public Character {
     public:
         Rogue();
         void takeDamage(int) override;
+        void resetValues();
         
 };
 
