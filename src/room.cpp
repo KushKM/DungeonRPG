@@ -23,26 +23,25 @@ Room::Room(int roomNum){
         roomMonster = new Monster(50, 6, mItem);
         item = nullptr;
     }else if(roomNumber == 3){
-        int dropChance = rand() % 100 + 1;
-        if(dropChance < 30){
-            Item* mItem = new Shield("Shield"); 
-            roomMonster = new Monster(50, 5, mItem);
-        }
-        else{
+        // int dropChance = rand() % 100 + 1;
+        // if(dropChance < 30){
+        //     Item* mItem = new Shield("Shield"); 
+        //     roomMonster = new Monster(50, 5, mItem);
+        // }
+        // else{
             Item* mItem = new healthPack("Health Pack", 30);
             roomMonster = new Monster(50, 6, mItem);
-        }
+        //}
     }else if(roomNumber == 4){
-        int dropChance = rand() % 100 + 1;
-        if(dropChance > 30 && dropChance < 60){
-            Item* mItem = new Shield("Shield"); 
-            roomMonster = new Monster(50, 5, mItem);
-        }
-        else{
+        // int dropChance = rand() % 100 + 1;
+        // if(dropChance > 30 && dropChance < 60){
+        //     Item* mItem = new Shield("Shield"); 
+        //     roomMonster = new Monster(50, 5, mItem);
+        // }
+        // else{
             Item* mItem = new healthPack("Health Pack", 30);
             roomMonster = new Monster(50, 6, mItem);
         }
-    }
 }
 
 Room::~Room(){
