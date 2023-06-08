@@ -13,9 +13,9 @@ class Entity {
         Entity(double, double);
         virtual void attackEnemy(Entity*);
         virtual void takeDamage(int);
-        void equipShield(); 
-        bool hasShieldEquipped(); 
-        void removeShield(); 
+        // void equipShield(); 
+        // bool hasShieldEquipped(); 
+        // void removeShield(); 
         int getCurrency();
         void setHealth(double );
         double getHealth();

@@ -15,6 +15,7 @@ class Monster : public Entity {
         Monster();
         ~Monster();
         Monster(double h, double d, Item* i);
+        //bool checkIfCurrency(Item* ); 
         void printMonsterDescription();
         void monsterItemDrop(Character* ); 
 };

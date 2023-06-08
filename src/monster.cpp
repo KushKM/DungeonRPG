@@ -18,9 +18,9 @@ void Monster::printMonsterDescription(){
     cout << "Monster health: " << getHealth() << endl;
 }
 
-bool Monster::checkIfCurrency(Item* item){
-    return if(item->currencyPack());
-}
+// bool Monster::checkIfCurrency(Item* item){
+//     return if(item->currencyPack());
+// }
 
 void Monster::monsterItemDrop(Character* player){
     /*int dropChance = rand() % 100 + 1;
@@ -54,4 +54,5 @@ void Monster::monsterItemDrop(Character* player){
     else{
         player->addItemToInventory(item); 
     }*/
+    player->addItemToInventory(item);
 }
