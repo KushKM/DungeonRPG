@@ -36,6 +36,7 @@ Room::Room(int roomNum){
 
 Room::~Room(){
     delete roomMonster;
+    delete item;
 }
 
 void Room::outputRoomDescription() {

@@ -9,12 +9,11 @@ using namespace std;
 Rogue::Rogue() : Character(17.5, 25.0, 10, 10){}
 
 void Rogue::takeDamage(int dmg){
-    srand(time(NULL));
     int dodgeChance = rand() % 10 + 1;
     if(dodgeChance < 3) {
         cout << "       #### You dodged the attack! ####" << endl << endl; cin.ignore(); cin.ignore();
     } else {
-        this->health = this->health - dmg;
+        Entity::takeDamage(dmg);
     }
 }
 

@@ -140,7 +140,7 @@ void Game::startDungeonRun() {
             else cout << "Doesn't exist\n";
         }
     }
-    
+    delete player;
 }
 
 void Game::createDungeon(int totalSize){
