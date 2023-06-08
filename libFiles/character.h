@@ -13,7 +13,6 @@ class Character : public Entity {
         double damage;
         int currency;
         int speed;
-        bool hasShield;
         vector<Item*> inventory; 
     public:
         Character();
@@ -23,9 +22,6 @@ class Character : public Entity {
         void addCurrency(int amount); 
         void addItemToInventory(Item*); 
         void listInventory();
-        void equipShield(); 
-        bool hasShieldEquipped(); 
-        void removeShield(); 
         void useItemFromInventory(int index);
 };
 

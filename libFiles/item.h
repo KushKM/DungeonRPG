@@ -1,24 +1,25 @@
 #ifndef ITEM
-#define ITEM 
+#define ITEM
 #include <string>
 
 using namespace std; 
 
 class Character;
 
-class Item {
 
+class Item {
     private: 
         string name; 
         int healthPack; 
         int currencyPack; 
+        Character* player; 
     public: 
         Item();
         Item(string itemName, int healthAmount, int currencyAmount);
         string getName(); 
         int getHealthPack();
         int getCurrency(); 
-        virtual void use();  
+        virtual void use(Character* player);
 
 };
 
@@ -29,7 +30,7 @@ class healthPack : public Item {
     public:
         healthPack() : Item() {}
         healthPack(string itemName, int healthAmount) : Item(itemName, healthAmount, 0) {}
-        void use() override; 
+        void use(Character* player) override; 
 };
 
 class currencyPack : public Item {
@@ -39,23 +40,23 @@ class currencyPack : public Item {
     public:
         currencyPack() : Item() {}
         currencyPack(string itemName, int currencyAmount) : Item(itemName, 0, currencyAmount) {}
-        void use() override; 
+        void use(Character* player) override; 
 };
+
 
 class damageBooster : public Item { 
     public: 
     damageBooster() : Item() {}
     damageBooster(string itemName) : Item(itemName, 0, 0) {}
-    void use() override; 
+    void use(Character* player) override; 
 };
 
 class Shield : public Item {
     public:
     Shield() : Item() {}
     Shield(string itemName) : Item(itemName, 0, 0) {}
-    void use() override;
+    void use(Character* player) override;
 
 };
-
 
 #endif

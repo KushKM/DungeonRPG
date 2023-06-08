@@ -247,7 +247,8 @@ void Game::onVictory() {
 
 //displays the shop
 void Game::displayShop() {
-    cout << "hello this is the shop" << endl;
+    cout << "Entering the shop.." << endl;
+    //shop->displayItems(); 
     cin.ignore(); cin.ignore();
     mainMenuOptions();
 }

@@ -18,8 +18,12 @@ void Monster::printMonsterDescription(){
     cout << "Monster health: " << getHealth() << endl;
 }
 
+bool Monster::checkIfCurrency(Item* item){
+    return if(item->currencyPack());
+}
+
 void Monster::monsterItemDrop(Character* player){
-    int dropChance = rand() % 100 + 1;
+    /*int dropChance = rand() % 100 + 1;
     if(dropChance <= 30) {  
         item = new healthPack("Health Pack", 20);
         cout << "Monster dropped a health pack." << endl;
@@ -42,5 +46,12 @@ void Monster::monsterItemDrop(Character* player){
         cout << "Monster dropped a shield." << endl; 
         cin.ignore(); 
         player->equipShield(); 
+    }*/
+    if(checkIfCurrency(item)){
+        player->addCurrency(getCurrency());
+    }
+    else if()
+    else{
+        player->addItemToInventory(item); 
     }
 }

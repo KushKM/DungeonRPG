@@ -10,9 +10,26 @@ Entity::Entity(double h, double d) : health(h), damage(d){}
 void Entity::attackEnemy(Entity* e){
     e->takeDamage(getDamage());
 }
+void Entity::equipShield() {
+    hasShield = true;
+}
+
+bool Entity::hasShieldEquipped() {
+    return hasShield;
+}
+
+void Entity::removeShield() {
+    hasShield = false;
+}
 
 void Entity::takeDamage(int dmg) {
-    this->health = this->health - dmg;
+    if(!hasShieldEquipped()){
+        this->health = this->health - dmg;
+    }
+    else{
+        cout << "The shield absorbed the damage." << endl; 
+        removeShield(); 
+    }
 }
 void Entity::setHealth(double s){
     health = s; 

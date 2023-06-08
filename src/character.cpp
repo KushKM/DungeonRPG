@@ -24,18 +24,6 @@ bool Character::attemptRun() {
     }
 }
 
-void Character::equipShield() {
-    hasShield = true;
-}
-
-bool Character::hasShieldEquipped() {
-    return hasShield;
-}
-
-void Character::removeShield() {
-    hasShield = false;
-}
-
 
 void Character::addItemToInventory(Item* item){
     inventory.push_back(item);
@@ -61,6 +49,6 @@ void Character::useItemFromInventory(int index) {
         return;
     }
     Item* item = inventory[index];
-    item->use();
+    item->use(this);
     inventory.erase(inventory.begin() + index);
 }

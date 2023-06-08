@@ -11,7 +11,7 @@ Room::Room(int roomNum){
     //For boss rooms multiply monster stats or something
     if(roomNumber == 5) {
         statsMultiplier = 3;
-        Item* mItem = new currencyPack("Currency", 100);
+        Item* mItem = new damageBooster("Damage Booster");
         roomMonster = new Monster(150, 18, mItem);
         item = nullptr;
     }else if(roomNumber == 1){
@@ -19,18 +19,29 @@ Room::Room(int roomNum){
         roomMonster = new Monster(50, 6, mItem);
         item = nullptr;
     }else if(roomNumber == 2){
-        Item* mItem = new healthPack("Health Pack", 30);
+        Item* mItem = new currencyPack("CurrencyPack", 100);
         roomMonster = new Monster(50, 6, mItem);
         item = nullptr;
     }else if(roomNumber == 3){
-        //random item?
-        item = new healthPack("Health Pack", 20);
-        Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
+        int dropChance = rand() % 100 + 1;
+        if(dropChance < 30){
+            Item* mItem = new Shield("Shield"); 
+            roomMonster = new Monster(50, 5, mItem);
+        }
+        else{
+            Item* mItem = new healthPack("Health Pack", 30);
+            roomMonster = new Monster(50, 6, mItem);
+        }
     }else if(roomNumber == 4){
-        Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
-        item = nullptr;
+        int dropChance = rand() % 100 + 1;
+        if(dropChance > 30 && dropChance < 60){
+            Item* mItem = new Shield("Shield"); 
+            roomMonster = new Monster(50, 5, mItem);
+        }
+        else{
+            Item* mItem = new healthPack("Health Pack", 30);
+            roomMonster = new Monster(50, 6, mItem);
+        }
     }
 }
 
