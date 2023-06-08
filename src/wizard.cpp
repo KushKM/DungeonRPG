@@ -3,7 +3,6 @@
 //Attacks have chance to do large amounts of damage
 
 #include <iostream>
-
 #include "wizard.h"
 
 using namespace std;
@@ -17,7 +16,6 @@ void Wizard::attackEnemy(Entity* e){
     } else {
         e->takeDamage(getDamage());
     }
-    e->takeDamage(getDamage());
 }
 
 void Wizard::resetValues() {

@@ -46,10 +46,14 @@ TEST(entityTests, getCurrency){
     EXPECT_EQ(testEntity->getCurrency(), 0);
 }
 
+TEST(clericTests, clericConstructor){
+    Entity* clericTest = new Cleric();
+    EXPECT_TRUE(clericTest->getHealth() == 30 && clericTest->getDamage() == 15);
+}
+
 TEST(clericTests, takeDamage){
     Entity* clericTest = new Cleric();
     clericTest->takeDamage(5);
-    cout <<  clericTest->getHealth() << endl;
     EXPECT_TRUE(clericTest->getHealth() == 25 || clericTest->getHealth() == 28)
                 << "Where health: " << clericTest->getHealth() << ", should equal 25 if you don't heal or 28 if you do heal.";
 
@@ -65,11 +69,32 @@ TEST(wizardTests, attackEnemy){
 
 }
 
+TEST(wizardTests, wizardConstructor){
+    Entity* wizardTest = new Wizard();
+    EXPECT_TRUE(wizardTest->getHealth() == 20 && wizardTest->getDamage() == 20);
+}
 TEST(warriorTests, attackEnemy){
     Entity* damagedEntity = new Entity(40.0, 10.0);
     Entity* testWarrior = new Warrior();
     testWarrior->takeDamage(20);
-    cout << testWarrior->getDamage() << endl;
     testWarrior->attackEnemy(damagedEntity);
-    EXPECT_EQ(damagedEntity->getHealth(), 15);
+    EXPECT_EQ(damagedEntity->getHealth(), 10);
+}
+
+TEST(warriorTests, warriorConstructor){
+    Entity* warriorTest = new Warrior();
+    EXPECT_TRUE(warriorTest->getHealth() == 40 && warriorTest->getDamage() == 20);
+}
+
+TEST(rogueTests, rogueConstructor){
+    Entity* rogueTest = new Rogue();
+    EXPECT_TRUE(rogueTest->getHealth() == 17.5 && rogueTest->getDamage() == 25);
+}
+
+TEST(rogueTests, takeDamage){
+    Entity* attackingEntity = new Entity(40.0, 10.0);
+    Entity* testRogue = new Rogue();
+    attackingEntity->attackEnemy(testRogue);
+    EXPECT_TRUE(testRogue->getHealth() == 7.5 || testRogue->getHealth() == 17.5)
+                << "Where health: " << testRogue->getHealth() << ", should equal 7.5 if you did not dodge or 17.5 if you did dodge.";
 }

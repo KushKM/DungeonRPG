@@ -16,7 +16,7 @@ void Cleric::takeDamage(int dmg){
         Entity::takeDamage(dmg);
     } else {
         Entity::takeDamage(dmg - 3);
-        //DISPLAY MESSAGE THAT YOU HEALED THIS TURN
+        cout << "       #### You healed some of the damage! ####" << endl << endl; cin.ignore(); cin.ignore();
         
     }
 }
