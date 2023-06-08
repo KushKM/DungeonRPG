@@ -23,16 +23,10 @@ ADD_EXECUTABLE(main
 
 ADD_EXECUTABLE(tests
     test/roomFunctionTest.cpp
-    src/entity.cpp
-    src/character.cpp
-    src/monster.cpp
+    test/entityTest.cpp
     src/game.cpp
     src/room.cpp
-    src/item.cpp
-    src/wizard.cpp
-    src/warrior.cpp
-    src/cleric.cpp
-    src/rogue.cpp
+    
 )
 
 target_link_libraries(tests gtest gtest_main)
