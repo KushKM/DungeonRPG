@@ -151,8 +151,7 @@ void Game::createDungeon(int totalSize){
     int length = (int)(sqrt(totalSize));
     for(int i = 0; i < length; i++){
         for(int k = 0; k < length; k++){
-            //int randNum = (rand() % 4) + 1;
-            int randNum = 1; 
+            int randNum = (rand() % 4) + 1;
             //is the room on the far right in the middle
             if(i == length / 2 && k == length - 1){
                 randNum = 5;
