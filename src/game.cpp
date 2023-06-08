@@ -102,11 +102,14 @@ void Game::startDungeonRun() {
     while(isInDungeon) {
         currRoom->fightScreen();
         cout << "           Player health: " << player->getHealth() << endl;
-        cin.ignore(); cin.ignore();
+        cin.ignore();
 
         cout << "Run, Fight or Move on (if all monsters dead)? (r/f/m): ";
         cin >> input;
         cout << endl;
+        if(input == "quit" || input == "q"){
+            break;
+        }
         if(currRoom->roomMonster == nullptr && (input == "move" || input == "m")){
             changeRooms(0);
         }
