@@ -26,7 +26,7 @@ TEST(roomSwitchingTest, startRoomIndexPASS3){
 TEST(roomSwitchingTest, startRoomIndexFAIL1){
     Game* game = new Game();
     game->createDungeon(49);
-    EXPECT_EQ(19, game->getRoomIndex());
+    EXPECT_FALSE(19 == game->getRoomIndex());
     delete game;
 }
 
