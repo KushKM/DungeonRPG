@@ -47,11 +47,11 @@ void Monster::monsterItemDrop(Character* player){
         cin.ignore(); 
         player->equipShield(); 
     }*/
-    if(checkIfCurrency(item)){
+    /*if(checkIfCurrency(item)){
         player->addCurrency(getCurrency());
     }
     else if()
     else{
         player->addItemToInventory(item); 
-    }
+    }*/
 }
