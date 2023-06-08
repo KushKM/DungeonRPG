@@ -73,12 +73,29 @@ TEST(wizardTests, wizardConstructor){
     Entity* wizardTest = new Wizard();
     EXPECT_TRUE(wizardTest->getHealth() == 20 && wizardTest->getDamage() == 20);
 }
-TEST(warriorTests, attackEnemy){
+
+TEST(warriorTests, attackEnemy1){
+    Entity* damagedEntity = new Entity(40.0, 10.0);
+    Entity* testWarrior = new Warrior();
+    testWarrior->takeDamage(10);
+    testWarrior->attackEnemy(damagedEntity);
+    EXPECT_EQ(damagedEntity->getHealth(), 15);
+}
+
+TEST(warriorTests, attackEnemy2){
     Entity* damagedEntity = new Entity(40.0, 10.0);
     Entity* testWarrior = new Warrior();
     testWarrior->takeDamage(20);
     testWarrior->attackEnemy(damagedEntity);
     EXPECT_EQ(damagedEntity->getHealth(), 10);
+}
+
+TEST(warriorTests, attackEnemy3){
+    Entity* damagedEntity = new Entity(40.0, 10.0);
+    Entity* testWarrior = new Warrior();
+    testWarrior->takeDamage(30);
+    testWarrior->attackEnemy(damagedEntity);
+    EXPECT_EQ(damagedEntity->getHealth(), 5);
 }
 
 TEST(warriorTests, warriorConstructor){
