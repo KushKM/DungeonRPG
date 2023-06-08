@@ -31,6 +31,7 @@ Room::Room(int roomNum){
         // else{
             Item* mItem = new healthPack("Health Pack", 30);
             roomMonster = new Monster(50, 6, mItem);
+            item = nullptr; 
         //}
     }else if(roomNumber == 4){
         // int dropChance = rand() % 100 + 1;
@@ -41,6 +42,7 @@ Room::Room(int roomNum){
         // else{
             Item* mItem = new healthPack("Health Pack", 30);
             roomMonster = new Monster(50, 6, mItem);
+            item = nullptr; 
         }
 }
 

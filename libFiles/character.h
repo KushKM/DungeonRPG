@@ -23,6 +23,7 @@ class Character : public Entity {
         void addItemToInventory(Item*); 
         void listInventory();
         void useItemFromInventory(int index);
+        //virtual void reset_values() = 0; 
 };
 
 #endif
