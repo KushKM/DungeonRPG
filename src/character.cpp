@@ -15,6 +15,7 @@ bool Character::attemptRun() {
     //25% chance for now :)
     if(chance < 5){
         //figure out what to do. what i was thinking was to make this a bool method and just check the chance and do everything else in game.cpp
+        cout << "########## Escape successful! ##########" << endl;
         return true;
     }else{
         takeDamage(5);
