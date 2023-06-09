@@ -186,9 +186,10 @@ void Game::createDungeon(int totalSize){
 }
 
 void Game::changeRooms(int num){
-    if(currRoom->getItem() != nullptr){
+    if(currRoom->getItem() != nullptr && currRoom->visited() == false){
         player->addItemToInventory(currRoom->getItem());
     }
+    currRoom->setVisited(true);
     vector<string> directions;
     int sqr = (int)(sqrt(totalDungeonSize));
 

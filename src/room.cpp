@@ -8,6 +8,7 @@ using namespace std;
 Room::Room(int roomNum){
     roomNumber = roomNum;
     roomMonster = nullptr;
+    hasVisited = false;
     //For boss rooms multiply monster stats or something
     if(roomNumber == 5) {
         statsMultiplier = 3;
@@ -86,4 +87,12 @@ Item* Room::getItem(){
         return item;
     }
     return nullptr;
+}
+
+void Room::setVisited(bool visited){
+    this->hasVisited = visited;
+}
+
+bool Room::visited(){
+    return hasVisited;
 }

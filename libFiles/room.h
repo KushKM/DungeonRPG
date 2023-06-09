@@ -11,6 +11,7 @@ class Room {
         Item* item;
         int roomNumber;
         int statsMultiplier;
+        bool hasVisited;
     public:
         Monster* roomMonster;
         Room(int roomNum);
@@ -19,6 +20,8 @@ class Room {
         void fightScreen();
         int getRoomNumber();
         Item* getItem();
+        bool visited();
+        void setVisited(bool);
 };
 
 #endif
