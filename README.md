@@ -24,10 +24,10 @@
 [User Interface Specification](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/screen.pdf)
 
 ## Navigation Diagram
-![Nav Diagram](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/navdiagram.png)
+<img src="https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/navdiagram.png" style="width:80%">
 
 ## Class Diagram
-![Class Diagram](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/umldiagram.drawio.png)
+<img src="https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/umldiagram.drawio.png" style="width:80%">
 
 Above is the Class Diagram for our game: Labyrinth Looter. The program starts in Game class where the user will select a character in a function called createCharacter() where inside it creates a chracter(extended from entity class) of the type the user wants. Character is an abstract class and only provides universal functions for the classes that extend it(Cleric, Wizard, Brute, Rogue). At the end of the function, we create a list of room objects where each room holds a monster(if it has one) and an item(s) if it has any. This will be random(about 10-20 rooms) and based on how many rooms the user has gone through, the monsters will be stronger and the possible loot will be better. Since the player has no money, we can call startRun() and enter the first room in the list. Here we set the currRoom to be the room we are in. After entering a room, we output the options a player has with outputPlayerMenu() where we will also take in an input on what the user wants to do which includes attacking, running, or viewing inventory. If the player enters a boss room(The boss class extends the monster class and the monster class extends entity). It will inherit all of the methods and variables that monster and entity has but will have extra parts of it), they will not be allowed to leave as the boss will not let them leave until they have defeated it or have died. Once the player has reached the final room(indicated by reaching the end of the list of rooms), they will face the last boss. If they successfully defeat the boss without dying, they receive a large reward and are kicked back to the main menu where they can shop for items/stat boosts or go into the next level.
 
@@ -35,16 +35,8 @@ Game mechanics: When the player chooses to attack, they will call the attack() f
  
 # SOLID
 We included some new SOLID design principles within our code since phase II. We firstly applied the S, Single Responsibility, by moving all methods that output information outside of the game class and into their own class. This is because game is supposed to have the one responsibility of running our game. Now, instead of running our game and worrying about menu printing, we have a separate class that can print out everything for the game class now. We plan on using this more for different classes such as the room class, monster class, and character class. Next, we used the L, Liskov Substitution, by allowing the ability to pass any type of sub class into a method and not have it break. We can see this when passing in an entity type object into attackEnemy function and it works. It makes the code much simpler than making multiple methods to do basically the same thing. We implemented D, dependency inversion principle, by creating multiple interfaces to allow for multiple classes to use the same code instead of just relying entirely on classes . We did this by using two abstract classes, Entity and Item which can be used by its subclasses. 
-
  
-> ## Final deliverable
-> All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
-> Before the demo, you should do the following:
-> * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
-> * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
-> * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
-## Screenshots
+# Screenshots
 
 #### Main Menu and Shop
 ![Main Menu](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/mainmenu.png)
