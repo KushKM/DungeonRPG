@@ -24,6 +24,7 @@ class Character : public Entity {
         void setSpeed(int);
         void addCurrency(int amount); 
         void addItemToInventory(Item*); 
+        void useItemFromInventory(int );
         void listInventory();
         virtual void resetValues() = 0;
 };

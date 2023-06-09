@@ -1,4 +1,7 @@
-[Import from gameSetting.txt]
+It is your duty as the newest captain of the local army to clear out the treacherous beasts that have inhabited your town's once noble castle. 
+What was once a symbol of wealth and prosperity has become a hunting ground for monsters and a target for any thief 
+daring enough to break in and steal what wealth remains in the castle. 
+Perhaps if you free the town from this blight you will be promoted to the general of the army, and one day you might reclaim your family's throne.
 
 
 Choose your class:

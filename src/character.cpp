@@ -15,6 +15,7 @@ bool Character::attemptRun() {
     //25% chance for now :)
     if(chance < 5){
         //figure out what to do. what i was thinking was to make this a bool method and just check the chance and do everything else in game.cpp
+        cout << "########## Escape successful! ##########" << endl;
         return true;
     }else{
         takeDamage(5);
@@ -23,6 +24,7 @@ bool Character::attemptRun() {
         return false;
     }
 }
+
 
 void Character::addItemToInventory(Item* item){
     inventory.push_back(item);
@@ -47,7 +49,24 @@ void Character::setSpeed(int speed){
 
 void Character::listInventory(){
     for(int i = 0; i < inventory.size(); i++){
-        cout << "   " << i + 1 << ". " << inventory.at(i)->getName() << endl;
+        cout << "   " << i << ". " << inventory.at(i)->getName() << endl;
     }
     cout << endl;
+}
+
+
+void Character::useItemFromInventory(int index) {
+    if(index < 0 || index >= inventory.size()){
+        cout << "Invalid item index!" << endl;
+        return;
+    }
+    Item* item = inventory.at(index);
+    if(item->getName() == "Health Pack"){
+        healthPack* hp = dynamic_cast<healthPack*>(item); 
+            if(hp){
+                setHealth(getHealth() + hp->getHealthAmount());
+            }
+    }
+    inventory.erase(inventory.begin() + index);
+    delete item; 
 }
