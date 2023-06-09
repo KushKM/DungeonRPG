@@ -12,7 +12,7 @@ Wizard::Wizard() : Character(20.0, 20.0, 10, 5){}
 void Wizard::attackEnemy(Entity* e){
     int damageCalc = rand() % 9 + 1;
     if(damageCalc < 4){
-        e->takeDamage(35);
+        e->takeDamage(getDamage() + 15);
     } else {
         e->takeDamage(getDamage());
     }

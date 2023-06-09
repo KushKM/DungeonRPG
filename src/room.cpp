@@ -12,24 +12,24 @@ Room::Room(int roomNum){
     if(roomNumber == 5) {
         statsMultiplier = 3;
         Item* mItem = new currencyPack("Currency", 100);
-        roomMonster = new Monster(150, 18, mItem);
+        roomMonster = new Monster(150, 18, mItem, 11);
         item = nullptr;
     }else if(roomNumber == 1){
         Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
+        roomMonster = new Monster(50, 6, mItem, 4);
         item = nullptr;
     }else if(roomNumber == 2){
         Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
+        roomMonster = new Monster(50, 6, mItem, 2);
         item = nullptr;
     }else if(roomNumber == 3){
         //random item?
         item = new healthPack("Health Pack", 20);
         Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
+        roomMonster = new Monster(50, 6, mItem, 0);
     }else if(roomNumber == 4){
         Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
+        roomMonster = new Monster(50, 6, mItem, 7);
         item = nullptr;
     }
 }
