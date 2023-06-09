@@ -29,6 +29,8 @@ void Character::addItemToInventory(Item* item){
     cout << "Added " << item->getName() << " to inventory." << endl; 
 }
 
+int Character::getSpeed() { return speed; }
+
 int Character::getCurrency()  { return currency; }
 
 void Character::addCurrency(int amount){

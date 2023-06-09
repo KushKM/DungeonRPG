@@ -18,6 +18,7 @@ class Character : public Entity {
         Character();
         Character(double h, double d, int c, int s);
         bool attemptRun();
+        int getSpeed();
         int getCurrency();
         void addCurrency(int amount); 
         void addItemToInventory(Item*); 

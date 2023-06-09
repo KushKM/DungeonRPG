@@ -10,11 +10,13 @@ class Monster : public Entity {
     private:
         double health;
         double damage;
+        int speed;
         Item* item;
     public:
         Monster();
         ~Monster();
-        Monster(double h, double d, Item* i);
+        Monster(double h, double d, Item* i, int s);
+        int getSpeed();
         void printMonsterDescription();
         void monsterItemDrop(Character* ); 
 };
