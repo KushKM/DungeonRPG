@@ -33,7 +33,7 @@ class currencyPack : public Item {
 
     public:
         currencyPack() : Item() {}
-        currencyPack(string itemName, int currencyAmount) : Item(itemName) {}
+        currencyPack(string itemName, int currencyAmount) : Item(itemName), currencyAmount(currencyAmount) {}
 };
 
 
