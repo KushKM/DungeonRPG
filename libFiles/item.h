@@ -34,6 +34,7 @@ class currencyPack : public Item {
     public:
         currencyPack() : Item() {}
         currencyPack(string itemName, int currencyAmount) : Item(itemName), currencyAmount(currencyAmount) {}
+        int getCurrencyAmount() {return currencyAmount; }
 };
 
 
