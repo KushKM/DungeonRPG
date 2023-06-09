@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "item.cpp"
+#include "item.h"
 
 
 TEST(ItemTests, getName) {
@@ -9,19 +9,20 @@ TEST(ItemTests, getName) {
 }
 
 TEST(HealthPackTests, getHealthAmount) {
-    HealthPack* healthPack = new HealthPack("Health Pack", 50);
-    EXPECT_EQ(healthPack->getHealthAmount(), 50);
-    delete healthPack;
+    healthPack* hp = new healthPack("Health Pack", 50);
+    EXPECT_EQ(hp->getHealthAmount(), 50);
+    delete hp;
 }
 
 TEST(CurrencyPackTests, getCurrencyAmount) {
-    CurrencyPack* currencyPack = new CurrencyPack("Currency Pack", 100);
-    EXPECT_EQ(currencyPack->getCurrencyAmount(), 100);
-    delete currencyPack;
+    currencyPack* cp = new currencyPack("Currency Pack", 100);
+    EXPECT_EQ(cp->getCurrencyAmount(), 100);
+    delete cp;
 }
 
 TEST(DamageBoosterTests, getName) {
-    DamageBooster* damageBooster = new DamageBooster("Damage Booster");
-    EXPECT_EQ(damageBooster->getName(), "Damage Booster");
-    delete damageBooster;
+    damageBooster* db = new damageBooster("Damage Booster");
+    EXPECT_EQ(db->getName(), "Damage Booster");
+    delete db;
 }
+
