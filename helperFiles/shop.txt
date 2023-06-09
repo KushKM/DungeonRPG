@@ -1,0 +1,7 @@
+### Welcome to the shop! ###
+Options:
+    1. Damage buff (5 currency)
+    2. Health buff (10 currency)
+    3. Leave Shop
+
+Input: 

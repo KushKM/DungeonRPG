@@ -10,6 +10,7 @@ using namespace std;
 
 void printClassesIntro();
 void printMainMenu();
+void printShop();
 
 Game::Game(){
     srand(time(NULL));
@@ -102,14 +103,11 @@ void Game::startDungeonRun() {
     while(isInDungeon) {
         currRoom->fightScreen();
         cout << "           Player health: " << player->getHealth() << endl;
-        cin.ignore();
+        cin.ignore(); cin.ignore();
 
         cout << "Run, Fight or Move on (if all monsters dead)? (r/f/m): ";
         cin >> input;
         cout << endl;
-        if(input == "quit" || input == "q"){
-            break;
-        }
         if(currRoom->roomMonster == nullptr && (input == "move" || input == "m")){
             changeRooms(0);
         }
@@ -143,7 +141,7 @@ void Game::startDungeonRun() {
             else cout << "Doesn't exist\n";
         }
     }
-    delete player;
+    
 }
 
 void Game::createDungeon(int totalSize){
@@ -234,8 +232,37 @@ void Game::onVictory() {
 
 //displays the shop
 void Game::displayShop() {
-    cout << "hello this is the shop" << endl;
-    cin.ignore(); cin.ignore();
+    printShop();
+    int input;
+
+    while(true) {
+        cin >> input;
+        if(input == 1) {
+            if(player->getCurrency() >= 5) {
+                player->addCurrency(-5);
+                player->setDamage(player->getDamage() + 1);
+                cout << "   ## Damage buff purchased ##" << endl << endl;
+                break;
+            }
+            else {
+                cout << "       ## Not enough currency ##" << endl << endl;
+                printShop();
+            }
+        }
+        if(input == 2) {
+            if(player->getCurrency() >= 10) {
+                player->addCurrency(-10);
+                player->setHealth(player->getHealth() + 3);
+                cout << "   Health buff purchased" << endl << endl;
+                break;
+            }
+            else {
+                cout << "       ## Not enough currency ##" << endl << endl;
+                printShop();
+            }
+        }
+        if(input == 3) {break;}
+    }
     mainMenuOptions();
 }
 
@@ -249,10 +276,15 @@ void printClassesIntro() {
 void printMainMenu() {
     ifstream file("helperFiles/mainMenu.txt");
     if(file.is_open()) cout << file.rdbuf();
-
-    cout << endl;
     file.close();
 }
+
+void printShop() {
+    ifstream file("helperFiles/shop.txt");
+    if(file.is_open()) cout << file.rdbuf();
+    file.close();
+}
+
 
 int Game::getRoomIndex(){
     return roomIndex;
