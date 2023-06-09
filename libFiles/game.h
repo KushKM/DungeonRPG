@@ -9,6 +9,7 @@
 #include "cleric.h"
 #include "room.h"
 #include "item.h"
+#include "output.h"
 #include <vector>
 
 class Game {
@@ -19,9 +20,14 @@ class Game {
         int roomNumber = 0;
         vector<Room*> dungeonRooms;
         int roomIndex;
+
+        MenuOutput outputMenu;
+        ClassIntroOutput outputClassIntro;
+        ShopOutput outputShop;
     public: 
         Game();
         ~Game();
+        void deleteLevel();
         void mainMenuOptions();
         void createCharacter();
         void startDungeonRun();

@@ -37,6 +37,14 @@ void Character::addCurrency(int amount){
     currency += amount; 
 }
 
+void Character::setCurrency(int currency){
+    this->currency = currency;
+}
+
+void Character::setSpeed(int speed){
+    this->speed = speed;
+}
+
 void Character::listInventory(){
     for(int i = 0; i < inventory.size(); i++){
         cout << "   " << i + 1 << ". " << inventory.at(i)->getName() << endl;

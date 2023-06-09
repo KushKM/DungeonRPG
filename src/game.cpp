@@ -8,25 +8,23 @@
 #include <vector>
 using namespace std;
 
-void printClassesIntro();
-void printMainMenu();
-void printShop();
-
 Game::Game(){
     srand(time(NULL));
+    player = nullptr;
     //this value we will ask the user later
 }
 
 Game::~Game(){
     cout << "Game over...\n";
-    for(int i = 0; i < dungeonRooms.size(); i++){
-        delete dungeonRooms.at(i);
+    deleteLevel();
+    if(player != nullptr){
+        delete player;
     }
 }
 
 //will print and ask for menuoptions (DONE)
 void Game::mainMenuOptions() {
-    printMainMenu();
+    outputMenu.printMainMenu();
 
     int choice = -1;
     while(!(choice >= 1 && choice <= 3)) {
@@ -42,6 +40,8 @@ void Game::mainMenuOptions() {
     cout << endl;
     switch(choice) {
         case 1: 
+            deleteLevel();
+            createDungeon(25);
             startDungeonRun();
             break;
         case 2: 
@@ -55,7 +55,7 @@ void Game::mainMenuOptions() {
 
 //will present user to choose a class on game start (DONE)
 void Game::createCharacter() {
-    printClassesIntro();
+    outputClassIntro.printClassIntro();
     
     int choice = -1;
     while(!(choice >= 1 && choice <= 4)) { 
@@ -92,7 +92,6 @@ void Game::createCharacter() {
 
 //Function that starts a run by "traveling to dungeon..."
 void Game::startDungeonRun() {
-    player->resetValues();
     cout << endl << "%%%%%% Traveling to dungeon... %%%%%%" << endl;
     cin.ignore();  
     
@@ -103,11 +102,16 @@ void Game::startDungeonRun() {
     while(isInDungeon) {
         currRoom->fightScreen();
         cout << "           Player health: " << player->getHealth() << endl;
-        cin.ignore(); cin.ignore();
+        cin.ignore();
 
         cout << "Run, Fight or Move on (if all monsters dead)? (r/f/m): ";
         cin >> input;
         cout << endl;
+        //DO NOT FKN REMOVE THIS
+        if(input == "quit" || input == "q"){
+            break;
+        }
+
         if(currRoom->roomMonster == nullptr && (input == "move" || input == "m")){
             changeRooms(0);
         }
@@ -125,9 +129,14 @@ void Game::startDungeonRun() {
                 player->attackEnemy(currRoom->roomMonster);
                 if(currRoom->roomMonster->getHealth() <= 0){
                     currRoom->roomMonster->monsterItemDrop(player); 
-                    player->listInventory(); 
-                    currRoom->roomMonster = nullptr; 
+                    //player->listInventory(); 
+                    delete currRoom->roomMonster;
+                    currRoom->roomMonster = nullptr;
                     roomNumber++;
+                    if(currRoom->getRoomNumber() == 5){
+                        onVictory();
+                        break;
+                    }
                     changeRooms(0);
                 }
                 else{
@@ -141,10 +150,12 @@ void Game::startDungeonRun() {
             else cout << "Doesn't exist\n";
         }
     }
-    
 }
 
 void Game::createDungeon(int totalSize){
+    if(totalSize < 9){
+        throw("Dungeon size is less than 0");
+    }
     totalDungeonSize = totalSize;
     //first part, create room matrix
     int length = (int)(sqrt(totalSize));
@@ -160,7 +171,7 @@ void Game::createDungeon(int totalSize){
         }
     }
     roomIndex = (length * (length / 2)) + 1;
-    currRoom = dungeonRooms.at(roomIndex);
+    currRoom = dungeonRooms.at(roomIndex - 1);
 }
 
 void Game::changeRooms(int num){
@@ -177,7 +188,7 @@ void Game::changeRooms(int num){
 
     if(num == 1){
         changeRoom(directions.at(0));
-        currRoom = dungeonRooms.at(roomIndex);
+        currRoom = dungeonRooms.at(roomIndex - 1);
         currRoom->outputRoomDescription();
     }else{
         bool wasDirection = false;
@@ -197,7 +208,7 @@ void Game::changeRooms(int num){
                 if(input == directions.at(i)){
                     wasDirection = true;
                     changeRoom(input);
-                    currRoom = dungeonRooms.at(roomIndex);
+                    currRoom = dungeonRooms.at(roomIndex - 1);
                     currRoom->outputRoomDescription();
                     break;
                 }
@@ -207,10 +218,34 @@ void Game::changeRooms(int num){
 }
 
 void Game::changeRoom(string& newRoom){
-    if(newRoom == "East") roomIndex++;
-    if(newRoom == "North") roomIndex -= (int)(sqrt(totalDungeonSize));
-    if(newRoom == "South") roomIndex += (int)(sqrt(totalDungeonSize));
-    if(newRoom == "West") roomIndex--;
+    if(newRoom == "East"){
+        if(roomIndex + 1 >= dungeonRooms.size()){
+            throw("Index out of bounds when trying to change rooms");
+        }else{
+            roomIndex++;
+        }
+    }       
+    if(newRoom == "North"){
+        if(roomIndex - (int)(sqrt(totalDungeonSize)) < 0){
+            throw("Index out of bounds when trying to change rooms");
+        }else{
+            roomIndex -= (int)(sqrt(totalDungeonSize));
+        }
+    }
+    if(newRoom == "South"){
+        if(roomIndex + (int)(sqrt(totalDungeonSize)) >= dungeonRooms.size()){
+            throw("Index out of bounds when trying to change rooms");
+        }else{
+            roomIndex += (int)(sqrt(totalDungeonSize));
+        }
+    }
+    if(newRoom == "West"){
+        if(roomIndex - 1 < 0){
+            throw("Index out of bounds when trying to change rooms");
+        }else{
+            roomIndex--;
+        }
+    }
 }
 
 //ends the run if player dies (SEMI-DONE, needs better description)
@@ -218,6 +253,7 @@ void Game::onDeath() {
     cout << "You died" << endl;
     cout << "You beat " << roomNumber << " rooms." << endl;
     cout << "Your currency: " << player->getCurrency() << endl << endl;
+    player->resetValues();
     cin.ignore(); cin.ignore();
     mainMenuOptions();
 }
@@ -232,7 +268,7 @@ void Game::onVictory() {
 
 //displays the shop
 void Game::displayShop() {
-    printShop();
+    outputShop.printShop();
     int input;
 
     while(true) {
@@ -246,7 +282,7 @@ void Game::displayShop() {
             }
             else {
                 cout << "       ## Not enough currency ##" << endl << endl;
-                printShop();
+                outputShop.printShop();
             }
         }
         if(input == 2) {
@@ -258,7 +294,7 @@ void Game::displayShop() {
             }
             else {
                 cout << "       ## Not enough currency ##" << endl << endl;
-                printShop();
+                outputShop.printShop();
             }
         }
         if(input == 3) {break;}
@@ -266,25 +302,12 @@ void Game::displayShop() {
     mainMenuOptions();
 }
 
-//Helper function to print out the class infos (DONE)
-void printClassesIntro() {
-    ifstream file("helperFiles/classChoice.txt");
-    if(file.is_open()) cout << file.rdbuf();
-    file.close();
+void Game::deleteLevel(){
+    for(int i = 0; i < dungeonRooms.size(); i++){
+        delete dungeonRooms.at(i);
+    }
+    dungeonRooms.clear();
 }
-
-void printMainMenu() {
-    ifstream file("helperFiles/mainMenu.txt");
-    if(file.is_open()) cout << file.rdbuf();
-    file.close();
-}
-
-void printShop() {
-    ifstream file("helperFiles/shop.txt");
-    if(file.is_open()) cout << file.rdbuf();
-    file.close();
-}
-
 
 int Game::getRoomIndex(){
     return roomIndex;

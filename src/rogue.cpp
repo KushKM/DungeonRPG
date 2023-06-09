@@ -18,8 +18,7 @@ void Rogue::takeDamage(int dmg){
 }
 
 void Rogue::resetValues() {
-    this->health = 17.5;
-    this->damage = 25.0;
-    this->currency = 10;
-    this->speed = 10;
+    setHealth(17.5);
+    setDamage(25.0);
+    setSpeed(10);
 }
