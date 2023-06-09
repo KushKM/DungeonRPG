@@ -24,6 +24,7 @@ ADD_EXECUTABLE(main
 
 ADD_EXECUTABLE(tests
     test/roomFunctionTest.cpp
+    test/entityTest.cpp
     src/entity.cpp
     src/character.cpp
     src/monster.cpp
@@ -36,5 +37,6 @@ ADD_EXECUTABLE(tests
     src/wizard.cpp
     src/output.cpp
 )
+
 
 target_link_libraries(tests gtest gtest_main)

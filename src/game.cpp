@@ -128,9 +128,9 @@ void Game::startDungeonRun() {
             if(currRoom->roomMonster != nullptr){
                 player->attackEnemy(currRoom->roomMonster);
                 if(currRoom->roomMonster->getHealth() <= 0){
-                    currRoom->roomMonster->monsterItemDrop(player); 
-                    delete currRoom->roomMonster;
+                    currRoom->roomMonster->monsterItemDrop(player);
                     currRoom->roomMonster = nullptr;
+                    delete currRoom->roomMonster; 
                     player->listInventory(); 
                     int itemIndex;
                     cout << "You collected an item! Choose the item number you want to use (Enter -1 if you want to save the item for now): " << endl;

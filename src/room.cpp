@@ -35,9 +35,8 @@ Room::Room(int roomNum){
 }
 
 Room::~Room(){
-    if(roomMonster != nullptr){
-        delete roomMonster;
-    }
+    delete roomMonster; 
+    roomMonster = nullptr; 
     if(item != nullptr){
         delete item;
     }

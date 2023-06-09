@@ -68,5 +68,5 @@ void Character::useItemFromInventory(int index) {
             }
     }
     inventory.erase(inventory.begin() + index);
-    delete item; 
+    //delete item;
 }
