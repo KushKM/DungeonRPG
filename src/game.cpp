@@ -126,8 +126,6 @@ void Game::startDungeonRun() {
                 if(currRoom->roomMonster->getHealth() <= 0){
                     currRoom->roomMonster->monsterItemDrop(player); 
                     player->listInventory(); 
-                    player->useItemFromInventory(0);
-                    player->listInventory(); 
                     currRoom->roomMonster = nullptr; 
                     roomNumber++;
                     changeRooms(0);
@@ -234,11 +232,6 @@ void Game::onVictory() {
 
 //displays the shop
 void Game::displayShop() {
-<<<<<<< HEAD
-    cout << "Entering the shop.." << endl;
-    //shop->displayItems(); 
-    cin.ignore(); cin.ignore();
-=======
     printShop();
     int input;
 
@@ -270,7 +263,6 @@ void Game::displayShop() {
         }
         if(input == 3) {break;}
     }
->>>>>>> 41c710bf1a57ea0c2688a1d2a6af7c8b4725b1cc
     mainMenuOptions();
 }
 
