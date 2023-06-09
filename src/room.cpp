@@ -35,9 +35,8 @@ Room::Room(int roomNum){
 }
 
 Room::~Room(){
-    if(roomMonster != nullptr){
-        delete roomMonster;
-    }
+    delete roomMonster;
+    roomMonster = nullptr;
     if(item != nullptr){
         delete item;
     }
@@ -69,8 +68,12 @@ void Room::outputRoomDescription() {
 
 void Room::fightScreen() {
     if(roomMonster != nullptr){
-        cout << "   %% There is a monster in front of you! %%\n";
-        roomMonster->printMonsterDescription();
+        if(roomMonster->getHealth() > 0){
+            cout << "   %% There is a monster in front of you! %%\n";
+            roomMonster->printMonsterDescription();
+        }else{
+            cout << "There appears to be no monster here.. maybe I killed it before?\n";
+        }
     }
 }
 
