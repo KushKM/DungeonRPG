@@ -22,6 +22,7 @@ Game::~Game(){
     for(int i = 0; i < dungeonRooms.size(); i++){
         delete dungeonRooms.at(i);
     }
+    delete player;
 }
 
 //will print and ask for menuoptions (DONE)
