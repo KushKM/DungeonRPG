@@ -1,4 +1,6 @@
+##### Main Menu ####
 Choose an option: 
    1. Enter the dungeon.
    2. Visit Shop.
    3. Quit game. 
+Input: 
