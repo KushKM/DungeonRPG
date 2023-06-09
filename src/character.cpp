@@ -25,6 +25,7 @@ bool Character::attemptRun() {
     }
 }
 
+
 void Character::addItemToInventory(Item* item){
     inventory.push_back(item);
     cout << "Added " << item->getName() << " to inventory." << endl; 
@@ -43,4 +44,22 @@ void Character::listInventory(){
         cout << "   " << i + 1 << ". " << inventory.at(i)->getName() << endl;
     }
     cout << endl;
+}
+
+
+void Character::useItemFromInventory(int index) {
+    if(index < 0 || index >= inventory.size()){
+        cout << "Invalid item index!" << endl;
+        return;
+    }
+    Item* item = inventory.at(index);
+    if(item->getName() == "Health Pack"){
+        healthPack* hp = dynamic_cast<healthPack*>(item); 
+            if(hp){
+                cout << "test" << endl;
+                setHealth(getHealth() + hp->getHealthAmount());
+            }
+    }
+    inventory.erase(inventory.begin() + index);
+    delete item; 
 }
