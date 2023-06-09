@@ -87,5 +87,6 @@ To begin the program to play the game:
   - During the game, after statements and asking for inputs, the program will seem to stop. Please press `Enter` to continue. This is to allow the user time to read and continue when ready.
 
 ## Testing
-> How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+We used [googletest](https://github.com/google/googletest) to test methods and classes, alongside the Github actions workflow in order to validate functioning code being pushed and merged into this project.
+A build badge can be found at the top of this README.
  
