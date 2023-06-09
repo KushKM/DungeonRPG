@@ -26,6 +26,7 @@ class Character : public Entity {
         void addItemToInventory(Item*); 
         void useItemFromInventory(int );
         void listInventory();
+        int getInventorySize();
         virtual void resetValues() = 0;
 };
 

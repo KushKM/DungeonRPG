@@ -8,6 +8,7 @@ using namespace std;
 Room::Room(int roomNum){
     roomNumber = roomNum;
     roomMonster = nullptr;
+    hasVisited = false;
     //For boss rooms multiply monster stats or something
     if(roomNumber == 5) {
         statsMultiplier = 3;
@@ -35,8 +36,8 @@ Room::Room(int roomNum){
 }
 
 Room::~Room(){
-    delete roomMonster; 
-    roomMonster = nullptr; 
+    delete roomMonster;
+    roomMonster = nullptr;
     if(item != nullptr){
         delete item;
     }
@@ -68,8 +69,12 @@ void Room::outputRoomDescription() {
 
 void Room::fightScreen() {
     if(roomMonster != nullptr){
-        cout << "   %% There is a monster in front of you! %%\n";
-        roomMonster->printMonsterDescription();
+        if(roomMonster->getHealth() > 0){
+            cout << "   %% There is a monster in front of you! %%\n";
+            roomMonster->printMonsterDescription();
+        }else{
+            cout << "There appears to be no monster here.. maybe I killed it before?\n";
+        }
     }
 }
 
@@ -82,4 +87,12 @@ Item* Room::getItem(){
         return item;
     }
     return nullptr;
+}
+
+void Room::setVisited(bool visited){
+    this->hasVisited = visited;
+}
+
+bool Room::visited(){
+    return hasVisited;
 }

@@ -6,6 +6,7 @@
 #include <ctime>
 #include <limits>
 #include <vector>
+#include <string>
 using namespace std;
 
 Game::Game(){
@@ -104,16 +105,17 @@ void Game::startDungeonRun() {
         cout << "           Player health: " << player->getHealth() << endl;
         cin.ignore();
 
-        cout << "Run, Fight or Move on (if all monsters dead)? (r/f/m): ";
+        if(currRoom->roomMonster->getHealth() > 0){
+            cout << "Run or Fight (r, f) ";
+        }else{
+            changeRooms(0);
+            continue;
+        }
         cin >> input;
         cout << endl;
         //DO NOT FKN REMOVE THIS
         if(input == "quit" || input == "q"){
             break;
-        }
-
-        if(currRoom->roomMonster == nullptr && (input == "move" || input == "m")){
-            changeRooms(0);
         }
         if(input == "r" || input == "run") {
             if(player->attemptRun() == true){
@@ -128,15 +130,18 @@ void Game::startDungeonRun() {
             if(currRoom->roomMonster != nullptr){
                 player->attackEnemy(currRoom->roomMonster);
                 if(currRoom->roomMonster->getHealth() <= 0){
-                    currRoom->roomMonster->monsterItemDrop(player);
-                    currRoom->roomMonster = nullptr;
-                    delete currRoom->roomMonster; 
+                    currRoom->roomMonster->monsterItemDrop(player); 
                     player->listInventory(); 
-                    int itemIndex;
+                    string itemIndex;
+                    char temp = '!';
                     cout << "You collected an item! Choose the item number you want to use (Enter -1 if you want to save the item for now): " << endl;
                     cin >> itemIndex;
-                    if(itemIndex != -1){
-                        player->useItemFromInventory(itemIndex);
+                    if(isdigit(itemIndex[0])){
+                        temp = itemIndex[0];
+                    }
+                    int number = temp - '0';
+                    if(number != -1){
+                        player->useItemFromInventory(number);
                     }
                     roomNumber++;
                     if(currRoom->getRoomNumber() == 5){
@@ -181,9 +186,10 @@ void Game::createDungeon(int totalSize){
 }
 
 void Game::changeRooms(int num){
-    if(currRoom->getItem() != nullptr){
+    if(currRoom->getItem() != nullptr && currRoom->visited() == false){
         player->addItemToInventory(currRoom->getItem());
     }
+    currRoom->setVisited(true);
     vector<string> directions;
     int sqr = (int)(sqrt(totalDungeonSize));
 

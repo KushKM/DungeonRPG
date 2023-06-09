@@ -3,6 +3,7 @@
 #include "monster.h"
 #include "item.h"
 #include <cstdlib>
+#include <limits>
 using namespace std;
 
 Character::Character() : Entity(), currency(0), speed(0){}
@@ -68,5 +69,8 @@ void Character::useItemFromInventory(int index) {
             }
     }
     inventory.erase(inventory.begin() + index);
-    //delete item;
+}
+
+int Character::getInventorySize(){
+    return inventory.size();
 }
