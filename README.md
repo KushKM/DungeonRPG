@@ -1,4 +1,3 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10950862&assignment_repo_type=AssignmentRepo)
 # Labyrinth Looter
  
  Authors: 
@@ -6,6 +5,8 @@
  [Kush](https://github.com/KushKM), 
  [Julian](https://github.com/jgonz671), 
  [Daniel](https://github.com/drodr211)
+ 
+ ![BADGE](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/actions/workflows/c-cpp.yml/badge.svg)
  
 ## Project Description
 * Text-based RPG game with rougelite elements, where you fight through rooms to defeat monsters and earn currency to permanently upgrade your character.
@@ -20,7 +21,7 @@
  
 
 ## User Interface Specification
-![User Interface Specification](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/screen.pdf)
+[User Interface Specification](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/screen.pdf)
 
 ## Navigation Diagram
 ![Nav Diagram](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/navdiagram.png)
@@ -36,17 +37,56 @@ Game mechanics: When the player chooses to attack, they will call the attack() f
 We included some new SOLID design principles within our code since phase II. We firstly applied the S, Single Responsibility, by moving all methods that output information outside of the game class and into their own class. This is because game is supposed to have the one responsibility of running our game. Now, instead of running our game and worrying about menu printing, we have a separate class that can print out everything for the game class now. We plan on using this more for different classes such as the room class, monster class, and character class. Next, we used the L, Liskov Substitution, by allowing the ability to pass any type of sub class into a method and not have it break. We can see this when passing in an entity type object into attackEnemy function and it works. It makes the code much simpler than making multiple methods to do basically the same thing. We implemented D, dependency inversion principle, by creating multiple interfaces to allow for multiple classes to use the same code instead of just relying entirely on classes . We did this by using two abstract classes, Entity and Item which can be used by its subclasses. 
 
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
+> ## Final deliverable
+> All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
+> Before the demo, you should do the following:
+> * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
+> * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
+> * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
- ## Screenshots
- > Screenshots of the input/output after running your application
- ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+## Screenshots
+
+#### Main Menu and Shop
+![Main Menu](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/mainmenu.png)
+![Shop](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/shop.png)
+
+#### Gameplay 
+<img src="https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/classpick.png" style="width:80%">
+
+![travel](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/traveltodungeon.png)
+![fight](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/fight.png)
+![win](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/win.png)
+
+
+## Installation
+> You will need `cmake` and `make` to be installed for this to work.
+
+ You have 2 options to install:
+  1. Clone this repo
+  2. Download this repo in a ZIP file.
+
+To clone:
+  - On your local machine, navigate to the directory where you would like to clone this project (Ex. `C:\Users\MY_USER\Documents`)
+  - Open a terminal in this folder
+  - Do `git clone https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671` (make sure you have git installed)
+  - Should now be ready to use!
+
+To download:
+  - Click on the green Code button at the top of this repo, then click download ZIP
+  - Extract that zip in any folder you'd like (Ex. `C:\Users\MY_USER\Documents`).
+  - Should now be ready to use!
+
+## Usage
+To begin the program to play the game:
+  - While in the root project folder, in the terminal do:
+      
+        user@local$ cmake .
+        user@local$ make 
+        user@local$ ./main 
+    - This will begin the game
+  - During the game, after statements and asking for inputs, the program will seem to stop. Please press `Enter` to continue. This is to allow the user time to read and continue when ready.
+
+## Testing
+We used [googletest](https://github.com/google/googletest) to test methods and classes, alongside the Github actions workflow in order to validate functioning code being pushed and merged into this project.
+A build badge can be found at the top of this README.
  

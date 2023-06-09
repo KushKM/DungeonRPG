@@ -13,6 +13,7 @@ class Cleric : public Character {
     public:
         Cleric();
         void takeDamage(int) override;
+        void resetValues();
         
 };
 

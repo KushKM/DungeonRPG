@@ -8,14 +8,13 @@ using namespace std;
 
 Monster::Monster() : Entity(), item(nullptr){}
 
-Monster::Monster(double h, double d, Item* i) : Entity(h, d), item(i){}
+Monster::Monster(double h, double d, Item* i, int s) : Entity(h, d), item(i), speed(s){}
 
-Monster::~Monster(){
-    delete item;
-}
+Monster::~Monster() { delete item;}
 
+int Monster::getSpeed(){ return speed; }
 void Monster::printMonsterDescription(){
-    cout << "Monster health: " << getHealth() << endl;
+    cout << "           Monster health: " << getHealth() << endl;
 }
 
 // bool Monster::checkIfCurrency(Item* item){

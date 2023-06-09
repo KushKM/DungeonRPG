@@ -11,14 +11,20 @@ Room::Room(int roomNum){
     //For boss rooms multiply monster stats or something
     if(roomNumber == 5) {
         statsMultiplier = 3;
+<<<<<<< HEAD
         Item* mItem = new damageBooster("Damage Booster");
         roomMonster = new Monster(150, 18, mItem);
+=======
+        Item* mItem = new currencyPack("Currency", 100);
+        roomMonster = new Monster(150, 18, mItem, 11);
+>>>>>>> 41c710bf1a57ea0c2688a1d2a6af7c8b4725b1cc
         item = nullptr;
     }else if(roomNumber == 1){
         Item* mItem = new healthPack("Health Pack", 30);
-        roomMonster = new Monster(50, 6, mItem);
+        roomMonster = new Monster(50, 6, mItem, 4);
         item = nullptr;
     }else if(roomNumber == 2){
+<<<<<<< HEAD
         Item* mItem = new currencyPack("CurrencyPack", 100);
         roomMonster = new Monster(50, 6, mItem);
         item = nullptr;
@@ -44,10 +50,26 @@ Room::Room(int roomNum){
             roomMonster = new Monster(50, 6, mItem);
             item = nullptr; 
         }
+=======
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem, 2);
+        item = nullptr;
+    }else if(roomNumber == 3){
+        //random item?
+        item = new healthPack("Health Pack", 20);
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem, 0);
+    }else if(roomNumber == 4){
+        Item* mItem = new healthPack("Health Pack", 30);
+        roomMonster = new Monster(50, 6, mItem, 7);
+        item = nullptr;
+    }
+>>>>>>> 41c710bf1a57ea0c2688a1d2a6af7c8b4725b1cc
 }
 
 Room::~Room(){
     delete roomMonster;
+    delete item;
 }
 
 void Room::outputRoomDescription() {
@@ -76,7 +98,7 @@ void Room::outputRoomDescription() {
 
 void Room::fightScreen() {
     if(roomMonster != nullptr){
-        cout << "There is a monster in front of you!\n";
+        cout << "   %% There is a monster in front of you! %%\n";
         roomMonster->printMonsterDescription();
     }
 }
