@@ -35,8 +35,12 @@ Room::Room(int roomNum){
 }
 
 Room::~Room(){
-    delete roomMonster;
-    delete item;
+    if(roomMonster != nullptr){
+        delete roomMonster;
+    }
+    if(item != nullptr){
+        delete item;
+    }
 }
 
 void Room::outputRoomDescription() {

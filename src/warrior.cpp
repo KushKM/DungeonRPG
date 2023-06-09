@@ -13,8 +13,7 @@ void Warrior::attackEnemy(Entity* e){
 }
 
 void Warrior::resetValues() {
-    health = 40;
-    damage = 20;
-    currency = 10;
-    speed = 1;
+    setHealth(40.0);
+    setDamage(20.0);
+    setSpeed(1);
 }

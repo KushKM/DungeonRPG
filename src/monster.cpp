@@ -10,7 +10,11 @@ Monster::Monster() : Entity(), item(nullptr){}
 
 Monster::Monster(double h, double d, Item* i, int s) : Entity(h, d), item(i), speed(s){}
 
-Monster::~Monster() { delete item;}
+Monster::~Monster() { 
+    if(item != nullptr){
+        delete item;
+    }
+}
 
 int Monster::getSpeed(){ return speed; }
 void Monster::printMonsterDescription(){

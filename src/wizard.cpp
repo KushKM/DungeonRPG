@@ -19,8 +19,7 @@ void Wizard::attackEnemy(Entity* e){
 }
 
 void Wizard::resetValues() {
-    health = 20;
-    damage = 20;
-    currency = 10;
-    speed = 5;
+    setHealth(20.0);
+    setDamage(20.0);
+    setSpeed(5);
 }

@@ -20,6 +20,8 @@ class Character : public Entity {
         bool attemptRun();
         int getSpeed();
         int getCurrency();
+        void setCurrency(int);
+        void setSpeed(int);
         void addCurrency(int amount); 
         void addItemToInventory(Item*); 
         void useItemFromInventory(int );
