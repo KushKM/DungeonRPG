@@ -13,11 +13,13 @@
 * We will be using C++ with VSCode. We will be using Git/Github to share, save, edit, and finalize our code as a group. We will also be using Cmake/make allowing us to compile and run much easier. We will use Valgrind to detect whether we had any memory leaks within our code. Finally, we will use Googletest framework to test our functions/code to ensure that they work.
 * The inputs will asked for through the command line interface (names, option numbers, etc.) and the outputs will be printed to the terminal using cout. We will ask the user every turn what they want to do(Attack, Run...). After each choice, the output will include(User health, monster health, user stats, the room they are in, whether there even is a monster or not). 
 * Features:
-  * Turn-based gameplay. This means that at the beginning of each turn, we can choose between attacking or going to a different room. If the user chooses a different room, then they will attempt to go into the room of their choice(if they have one) and if they fail, they will be attacked by the monster and lose their turn. If the user decides to attack, the entity(user or monster) with higher speed will attack first. If the user defeats the monster(s) within the room, they will forever be dead. They also have a chance to drop items and some form of currency. If the user dies, they will lose their stats and coins and be reset to the beginning. (Currently thinking on making multiple layers).
-  * Increasingly difficult rooms and better rewards. As the user progresses further into the game, the monsters will have higher stats(Health, Attack Damage, Speed, and other things) making it harder to go through. As the user gets closer to the end, they will start to encounter bosses with different styles of gameplay. Once they defeat the bosses, they can advance and may receive items that the bosses were holding.
-  * There will be a final boss. Once the player defeats it, they will complete the game or floor(whatever we are choosing). They can then go shopping with what they have and enter the same level or a harder level.
-  * Pick a class that suits your fighting style at the start of the game. Currently, there are Cleric(Has a chance to heal itself), Wizard(Chance to inflict more damage), Rogue(Has a chance to dodge an attack), Brute(As it has less health, it does more damage).
-  * Unless the player dies, they will be able to upgrade stats and buy items at a shop outside the level.
+  * Turn-based gameplay. This means that at the beginning of each turn, we can choose between attacking or going to a different room. 
+   * If the user chooses a different room, then they will attempt to go into the room of their choice(if they have one) and if they fail, they will be attacked by the monster and lose their turn. 
+   * If the user decides to attack, the entity(user or monster) with higher speed will attack first. If the user defeats the monster(s) within the room, they will forever be dead. They also have a chance to drop items and some currency. 
+   * If the user dies, they will lose their stats and coins and be reset to the beginning.
+  * A 5x5 grid of dungeon rooms with a boss at the end. There will be a final boss. Once the player defeats it, they will complete the game. They can then go shopping with what they have and enter the same level or a harder level.
+  * Pick a class that suits your fighting style at the start of the game. Currently, there are Cleric (Has a chance to heal itself), Wizard (Chance to inflict more damage), Rogue (Has a chance to dodge an attack), Brute (As it has less health, it does more damage).
+  * Unless the player dies, they will be able to upgrade stats and buy upgrades at a shop outside the level.
  
 
 ## User Interface Specification
