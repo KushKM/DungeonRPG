@@ -126,6 +126,12 @@ void Game::startDungeonRun() {
                 if(currRoom->roomMonster->getHealth() <= 0){
                     currRoom->roomMonster->monsterItemDrop(player); 
                     player->listInventory(); 
+                    int itemIndex;
+                    cout << "You collected an item! Choose the item number you want to use (Enter -1 if you want to save the item for now): " << endl;
+                    cin >> itemIndex;
+                    if(itemIndex != -1){
+                        player->useItemFromInventory(itemIndex);
+                    }
                     currRoom->roomMonster = nullptr; 
                     roomNumber++;
                     changeRooms(0);
