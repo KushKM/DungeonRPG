@@ -41,7 +41,7 @@ void Character::addCurrency(int amount){
 
 void Character::listInventory(){
     for(int i = 0; i < inventory.size(); i++){
-        cout << "   " << i + 1 << ". " << inventory.at(i)->getName() << endl;
+        cout << "   " << i << ". " << inventory.at(i)->getName() << endl;
     }
     cout << endl;
 }
@@ -56,7 +56,6 @@ void Character::useItemFromInventory(int index) {
     if(item->getName() == "Health Pack"){
         healthPack* hp = dynamic_cast<healthPack*>(item); 
             if(hp){
-                cout << "test" << endl;
                 setHealth(getHealth() + hp->getHealthAmount());
             }
     }
