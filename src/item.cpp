@@ -5,8 +5,9 @@ using namespace std;
 
 Item::Item() {}
 
-Item::Item(string itemName) {
-    name = itemName;
+Item::Item(string itemName) : name(itemName) {
 }
 
-string Item::getName()      { return name; }
+string Item::getName() { 
+    return name;
+}
