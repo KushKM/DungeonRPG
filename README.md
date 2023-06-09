@@ -65,7 +65,7 @@ We included some new SOLID design principles within our code since phase II. We 
 To clone:
   - On your local machine, navigate to the directory where you would like to clone this project (Ex. `C:\Users\MY_USER\Documents`)
   - Open a terminal in this folder
-  - Do `git clone https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671` (make sure you have git installed)
+  - Do `git clone --recursive https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671` (make sure you have git installed)
   - Should now be ready to use!
 
 To download:
