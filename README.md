@@ -84,6 +84,6 @@ To begin the program to play the game:
   - During the game, after statements and asking for inputs, the program will seem to stop. Please press `Enter` to continue. This is to allow the user time to read and continue when ready.
 
 ## Testing
-We used [googletest](https://github.com/google/googletest) to test methods and classes, alongside the Github actions workflow in order to validate functioning code being pushed and merged into this project.
+We used [googletest](https://github.com/google/googletest) to test methods and classes, alongside the Github actions workflow in order to validate functioning code being pushed and merged into this project. We each created test suites for functions that we wrote and extensively tested the functionality of the essential functions. To run these tests type ./test in the terminal. We also tested our program for memory leaks using valgrind on the main executable and running through the game from start to finish. We used repeated runs through the test each trying different values to test input validation as well.
 A build badge can be found at the top of this README.
  
