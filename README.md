@@ -45,7 +45,19 @@ We included some new SOLID design principles within our code since phase II. We 
 > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
 ## Screenshots
-> Screenshots of the input/output after running your application
+
+#### Main Menu and Shop
+![Main Menu](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/mainmenu.png)
+![Shop](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/shop.png)
+
+#### Gameplay 
+<img src="https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/classpick.png" style="width:80%">
+
+![travel](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/traveltodungeon.png)
+![fight](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/fight.png)
+![win](https://github.com/cs100/final-project-jmaro005-drodr211-kmoma001-jgonz671/blob/master/docs/win.png)
+
+
 ## Installation
 > You will need `cmake` and `make` to be installed for this to work.
 
